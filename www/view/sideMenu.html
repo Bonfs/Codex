@@ -1,0 +1,30 @@
+<ion-side-menus enable-menu-with-back-views="true" ng-controller="sideMenuCtrl">
+
+  <ion-side-menu-content>
+  <!-- Main content, usually <ion-nav-view> -->
+    <ion-nav-bar class="bar-stable nav-title-slide-ios7">
+        <ion-nav-back-button class="button-clear"><i class="icon ion-ios7-arrow-back"></i> Back</ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <!-- Left menu -->
+  <ion-side-menu side="left">
+    <header class="bar bar-header bar-energized">
+        <h1 class="title">Menu</h1>
+    </header>
+    <ion-content class="has-header">
+      <ion-list>
+        <ion-item menu-close href="#/app/home">
+          <i ng-class="{'ion-android-home': isAndroid, 'ion-ios-home': isIOS}"></i> Home
+        </ion-item>
+        <ion-item menu-close href="#/app/busca">
+          <i class="ion-android-search"></i> Busca
+        </ion-item>
+        <ion-item menu-close href="#/app/search">
+          Lembrete
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

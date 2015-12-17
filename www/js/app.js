@@ -1,0 +1,82 @@
+// Ionic Starter App
+
+// angular.module is a global place for creating, registering and retrieving Angular modules
+// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+// the 2nd parameter is an array of 'requires'
+//console.log('teste;')
+angular.module('codex', ['ionic'])
+
+.run(function($ionicPlatform, $state, $ionicPopup, $ionicHistory) {
+  $ionicPlatform.ready(function() {
+    if(window.cordova && window.cordova.plugins.Keyboard) {
+      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+      // for form inputs)
+      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+
+      // Don't remove this line unless you know what you are doing. It stops the viewport
+      // from snapping when text inputs are focused. Ionic handles this internally for
+      // a much nicer keyboard experience.
+      cordova.plugins.Keyboard.disableScroll(true);
+    }
+    if(window.StatusBar) {
+      StatusBar.styleDefault();
+    }
+  });
+  $ionicPlatform.registerBackButtonAction ( function (){
+    //alert('you sure you want to exit?');
+    if($state.current.name == 'app.home')
+    {
+      $ionicPopup.confirm({
+        title: 'Deseja sair?',
+        template: 'Você tem certeza que deseja sair do Codex?'
+      })
+      .then(function (res){
+        if (res)
+        {
+          alert('true');
+          navigator.app.exitApp();
+        }
+      })
+    }
+    else
+    {
+      alert($ionicHistory.currentStateName());
+      $state.go('app.home');
+      //$ionicHistory.goBack(-2);
+    }
+  }, 100);
+  //$scope.$on('$destroy', deregister);
+})
+
+.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider){
+  $ionicConfigProvider.views.maxCache(5);
+  $stateProvider
+
+  .state('app', {
+    url: '/app',
+    abstract: true,
+    templateUrl: 'view/sideMenu.html',
+    controller: 'sideMenuCtrl'
+  })
+
+  .state('app.home', {
+    url: '/home',
+    views: {
+      'menuContent': {
+        templateUrl: 'view/home.html'
+      }
+    }
+  })
+
+  .state('app.busca', {
+    url: '/busca',
+    views: {
+      'menuContent': {
+        templateUrl: 'view/busca.html',
+        controller: 'buscaCtrl'
+      }
+    }
+  })
+
+  $urlRouterProvider.otherwise('/app/home');
+});
