@@ -10,19 +10,31 @@
 
   <!-- Left menu -->
   <ion-side-menu side="left">
-    <header class="bar bar-header bar-energized">
-        <h1 class="title">Menu</h1>
-    </header>
-    <ion-content class="has-header">
+    <ion-content >
       <ion-list>
         <ion-item menu-close href="#/app/home">
           <i ng-class="{'ion-android-home': isAndroid, 'ion-ios-home': isIOS}"></i> Home
         </ion-item>
         <ion-item menu-close href="#/app/busca">
-          <i class="ion-android-search"></i> Busca
+          <i class="ion-android-search"></i> Buscar Livros
         </ion-item>
-        <ion-item menu-close href="#/app/search">
-          Lembrete
+        <ion-item menu-close>
+           <i class="ion-search"></i>Buscar Bibliotecas
+        </ion-item>
+        <ion-item menu-close>
+          Guia de Codificação
+        </ion-item>
+        <ion-item menu-close>
+          Livros Alugados
+        </ion-item>
+        <ion-item menu-close>
+          <i class="ion-android-star-outline"></i> Favoritos
+        </ion-item>
+        <ion-item menu-close>
+          Redes Socias
+        </ion-item>
+        <ion-item menu-close>
+          <i class="ion-help"></i>Ajuda
         </ion-item>
       </ion-list>
     </ion-content>

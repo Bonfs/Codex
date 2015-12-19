@@ -5,14 +5,21 @@
 	  	</ion-nav-buttons>
   	</ion-nav-bar>
 	<ion-content class="has-header">
-		<h1>BUSCA</h1>
-		<label class="item item-input">
-    		<input type="text" placeholder="Livro">
-  		</label>
-  		<!-- <a href="#/app/home">-->
-	  		<button class="button button-assertive" ng-click="teste()">
-	 			 Voltar para home
-			</button>
-		<!-- </a> -->
+		<form name="formLivros">
+			<label class="item item-input">
+	    		<input name="buscaLivro" type="text" placeholder="Buscar em FEACC" ng-model="busca">
+	  		</label>
+  		</form>
+  		<div name="tableLivros" ng-show="formLivros.buscaLivro.$dirty && busca.length >= 3">
+	  		<div class="row header">
+	          <div class="col">{{titulo}}</div>
+	        </div>
+	        <div class="row" ng-repeat="livro in livros | filter: busca"> <!-- | limitTo:1 -->
+	          <div class="col">{{livro.nome_livro}}</div>
+	          <div class="col">{{livro.autor}}</div>
+	          <div class="col">{{livro.ano}}</div>
+	          <div class="col">{{livro.codigo}}</div>
+	        </div>
+        </div>
 	</ion-content>
 </ion-view>
