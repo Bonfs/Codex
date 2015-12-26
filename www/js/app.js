@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 //console.log('teste;')
-angular.module('codex', ['ionic'])
+angular.module('codex', ['ionic', 'ngStorage'])
 
 .run(function($ionicPlatform, $state, $ionicPopup, $ionicHistory) {
   $ionicPlatform.ready(function() {
@@ -33,7 +33,7 @@ angular.module('codex', ['ionic'])
       .then(function (res){
         if (res)
         {
-          alert('true');
+          //alert('true');
           navigator.app.exitApp();
         }
       })
@@ -74,6 +74,16 @@ angular.module('codex', ['ionic'])
       'menuContent': {
         templateUrl: 'view/busca.html',
         controller: 'buscaCtrl'
+      }
+    }
+  })
+
+  .state('app.livrosAlugados', {
+    url: '/livrosAlugados',
+    views: {
+      'menuContent': {
+        templateUrl: 'view/livrosAlugados.html',
+        controller: 'livrosAlugadosCtrl'
       }
     }
   })

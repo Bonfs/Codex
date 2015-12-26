@@ -26,3 +26,13 @@ body {
 .row:last-child .col {
     border-bottom: solid 1px grey;
 }
+
+.aviso {
+    text-align: center;
+    margin-top: 50%;
+}
+.aviso h2 {
+    color: #757575;
+    font-size: 50px;
+    text-shadow: 2px 2px #424242;
+}
