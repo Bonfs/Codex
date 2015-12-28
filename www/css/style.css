@@ -9,6 +9,25 @@ body {
     cursor: url('http://ionicframework.com/img/finger.png'), auto;
 }
 
+.tableLivros{
+    font-size: 20px;
+}
+
+.tableLivros table{
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tableLivros tr, td, th{
+    border: solid 2px grey;
+}
+
+.tableLivros table thead tr th{
+    background-color:lightgrey;
+}
+
 .header .col {
     background-color:lightgrey;
 }

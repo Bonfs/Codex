@@ -1,0 +1,29 @@
+<ion-view view-title="Adicionar Livros">
+	<ion-nav-bar class="bar-royal">
+		<ion-nav-back-button class="button-clear">
+    		<i class="ion-arrow-left-c"></i> Back
+  		</ion-nav-back-button>
+	</ion-nav-bar>
+	<ion-content class="has-header" scroll="false">
+		{{dataAtual}}
+		<form name="addLivroForm" ng-submit="addLivro(livro)">
+			<div class="list">
+			  <label class="item item-input">
+			    <span class="input-label">Livro</span>
+			    <input type="text" ng-model="livro.nome_livro" ng-required="true"/>
+			  </label>
+			  <label class="item item-input">
+			    <span class="input-label">Código</span>
+			    <input type="text" ng-model="livro.codigo_livro" ng-required="true"/>
+			  </label>
+			  <label class="item item-input">
+			    <span class="input-label">Data de entrega</span>
+			    <input type="date" ng-model="livro.data_devolucao" min="{{dataAtual | date: 'yyyy-MM-dd'}}" ng-required="true"/>
+			  </label>
+			</div>
+			<button type="submit" class="button button-full button-dark">
+  				Salvar!
+			</button>
+		</form>
+	</ion-content>
+</ion-view>

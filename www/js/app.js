@@ -6,7 +6,7 @@
 //console.log('teste;')
 angular.module('codex', ['ionic', 'ngStorage'])
 
-.run(function($ionicPlatform, $state, $ionicPopup, $ionicHistory) {
+.run(function($ionicPlatform, $state, $ionicPopup, $ionicHistory, $ionicSideMenuDelegate) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -45,11 +45,19 @@ angular.module('codex', ['ionic', 'ngStorage'])
       //$ionicHistory.goBack(-2);
     }
   }, 100);
-  //$scope.$on('$destroy', deregister);
+  
+  if($state.current.name == 'app.addLivrosAlugados')
+  {
+    $ionicSideMenuDelegate.canDragContent(false);
+  }
+  else
+  {
+    $ionicSideMenuDelegate.canDragContent(true);  
+  }
 })
 
 .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider){
-  $ionicConfigProvider.views.maxCache(5);
+  $ionicConfigProvider.views.maxCache(0);
   $stateProvider
 
   .state('app', {
@@ -83,6 +91,16 @@ angular.module('codex', ['ionic', 'ngStorage'])
     views: {
       'menuContent': {
         templateUrl: 'view/livrosAlugados.html',
+        controller: 'livrosAlugadosCtrl'
+      }
+    }
+  })
+
+  .state('app.addLivrosAlugados', {
+    url: '/addLivrosAlugados',
+    views: {
+      'menuContent': {
+        templateUrl: 'view/addLivrosAlugados.html',
         controller: 'livrosAlugadosCtrl'
       }
     }
