@@ -40,7 +40,7 @@ angular.module('codex', ['ionic', 'ngStorage'])
     }
     else
     {
-      alert($ionicHistory.currentStateName());
+      //alert($ionicHistory.currentStateName());
       $state.go('app.home');
       //$ionicHistory.goBack(-2);
     }
