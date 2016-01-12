@@ -1,33 +1,30 @@
 angular.module('codex')
-.factory('storageService', function ($localStorage) {
+
+.factory('storageService', ['$localStorage', function ($localStorage){
 	$localStorage = $localStorage.$default({
-		livros: []
+  		livros: []
 	});
 
-	var _getAllLivros = function ()
-	{
+	var _getLivros = function () {
 		return $localStorage.livros;
-	};
+	}
 
-	var _addLivro = function (livro)
-	{
+	var _addLivro = function (livro) {
 		$localStorage.livros.push(livro);
-	};
+	}
 
-	var _removeLivro = function (livro)
-	{
+	var _removeLivro = function (livro) {
 		$localStorage.livros.splice($localStorage.livros.indexOf(livro), 1);
-	};
+	}
 
-	var _deleteLivros = function ()
-	{
+	var _limpaRegistro = function () {
 		$localStorage.livros = [];
-	};
+	}
 
 	return {
-		getAllLivros: _getAllLivros,
+		getLivros: _getLivros,
 		addLivro: _addLivro,
 		removeLivro: _removeLivro,
-		deleteLivros: _deleteLivros
+		limpaRegistro: _limpaRegistro
 	};
-})
+}])

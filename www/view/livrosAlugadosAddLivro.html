@@ -1,0 +1,30 @@
+<ion-view view-title="Adicionar Livro">
+	<ion-nav-bar class="bar-positive">
+		<ion-nav-back-button class="button-clear">
+    		<i class="ion-arrow-left-c"></i> Back
+  		</ion-nav-back-button>
+	</ion-nav-bar>
+    <ion-content>
+    	<h2 style="text-align: center;">Adicione os livros para lembrete</h2>
+    	<form name="addLivroForm" novalidate ng-submit="addLivro(livro)">
+    		<div class="list">
+    			<label class="item item-input">
+    				<span class="input-label">Livro</span>
+    				<input type="text" ng-model="livro.nome_livro" name="livro" ng-required="true">
+  				</label>
+  				<label class="item item-input">
+  					<span class="input-label">Código</span>
+    				<input type="text" ng-model="livro.codigo_livro" ng-required="true">
+  				</label>
+  				<label class="item item-input">
+  					<span class="input-label">Devolução</span>
+    				<input type="date" ng-model="livro.data_devolucao" min="{{dataAtual | date:'yyyy-MM-dd'}}" ng-required="true">
+  				</label>
+
+  				<button class="button button-full button-dark" type="submit" id="dataDevolucao" ng-disabled="addLivroForm.$invalid">
+            		Adicionar aos lembretes
+          		</button>
+    		</div>
+    	</form>
+    </ion-content>
+</ion-view>

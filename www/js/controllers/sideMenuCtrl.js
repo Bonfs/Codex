@@ -11,4 +11,5 @@ angular.module('codex').controller('sideMenuCtrl', function ($scope, $ionicSideM
 	{
 		$ionicSideMenuDelegate.toggleLeft();
 	}
+
 })

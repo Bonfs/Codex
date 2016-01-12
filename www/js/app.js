@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 //console.log('teste;')
-angular.module('codex', ['ionic', 'ngStorage'])
+angular.module('codex', ['ionic', 'ngStorage', 'ngCordova'])
 
 .run(function($ionicPlatform, $state, $ionicPopup, $ionicHistory, $ionicSideMenuDelegate) {
   $ionicPlatform.ready(function() {
@@ -46,13 +46,13 @@ angular.module('codex', ['ionic', 'ngStorage'])
     }
   }, 100);
   
-  if($state.current.name == 'app.addLivrosAlugados')
+  if($state.current.name == 'app.addLivro')
   {
     $ionicSideMenuDelegate.canDragContent(false);
   }
   else
   {
-    $ionicSideMenuDelegate.canDragContent(true);  
+    $ionicSideMenuDelegate.canDragContent(true);
   }
 })
 
@@ -102,6 +102,15 @@ angular.module('codex', ['ionic', 'ngStorage'])
       'menuContent': {
         templateUrl: 'view/addLivrosAlugados.html',
         controller: 'livrosAlugadosCtrl'
+      }
+    }
+  })
+
+  .state('app.codificacao', {
+    url: '/codificacao',
+    views: {
+      'menuContent': {
+        templateUrl: 'view/codificacao.html'
       }
     }
   })
