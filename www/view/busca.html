@@ -1,25 +1,45 @@
-<ion-view view-title="Busca">
-	<ion-nav-bar class="bar-positive">
-		<ion-nav-buttons side="left">
-	    	<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-	  	</ion-nav-buttons>
-  	</ion-nav-bar>
-	<ion-content class="has-header">
-		<form name="formLivros">
-			<label class="item item-input">
-	    		<input name="buscaLivro" type="text" placeholder="Buscar em FEACC" ng-model="busca">
-	  		</label>
-  		</form>
-  		<div name="tableLivros" ng-show="formLivros.buscaLivro.$dirty && busca.length >= 3">
-	  		<div class="row header">
-	          <div class="col">{{titulo}}</div>
+<body>
+	<ion-view view-title="Busca">
+		<ion-nav-bar class="bar-positive">
+			<ion-nav-buttons side="left">
+		    	<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+		  	</ion-nav-buttons>
+		  	<ion-nav-buttons side="right">
+		  	      <button class="button button-icon icon ion-android-search button-size-busca" ng-click="showFilterBar()" ng-model="busca"> </button>
+		  	</ion-nav-buttons>
+	  	</ion-nav-bar>
+		<ion-content class="has-header">
+			<ion-refresher pulling-icon="ion-arrow-down-b" on-refresh="refreshItems()">
+    		</ion-refresher>
+			<!--
+			<form name="formLivros">
+				<label class="item item-input">
+		    		<input name="buscaLivro" type="text" placeholder="Buscar em FEACC" ng-model="busca">
+		  		</label>
+	  		</form>	  		
+	  		<div name="tableLivros" ng-show="busca.length >= 3">
+		  		<div class="row header">
+		          <div class="col">{{titulo}}</div>
+		        </div>
+		        <div class="row" ng-repeat="livro in livros | filter: busca"> < | limitTo:1 
+		          <div class="col">{{livro.nome_livro}}</div>
+		          <div class="col">{{livro.autor}}</div>
+		          <div class="col">{{livro.ano}}</div>
+		          <div class="col">{{livro.codigo}}</div>
+		        </div>
 	        </div>
-	        <div class="row" ng-repeat="livro in livros | filter: busca"> <!-- | limitTo:1 -->
-	          <div class="col">{{livro.nome_livro}}</div>
-	          <div class="col">{{livro.autor}}</div>
-	          <div class="col">{{livro.ano}}</div>
-	          <div class="col">{{livro.codigo}}</div>
+	        -->
+	        <ion-list ng-show="busca.length >= 3">
+	        	<ion-item collection-repeat="livro in livros | filter: busca">
+	        		<p><strong>{{livro.nome_livro}}</strong></p>
+	        		<p>{{livro.autor}}</p>
+	        		<p>Localização: {{livro.codigo}} ({{livro.local}})</p>
+	        		<p>Tipo de obra: {{livro.obra}}</p>
+	        	</ion-item>
+	        </ion-list>
+	        <div ng-show="livros.length == 0">
+	        	<p>Nenhum resultado encontrado</p>
 	        </div>
-        </div>
-	</ion-content>
-</ion-view>
+		</ion-content>
+	</ion-view>
+</body>

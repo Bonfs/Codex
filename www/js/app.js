@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 //console.log('teste;')
-angular.module('codex', ['ionic', 'ngStorage', 'ngCordova'])
+angular.module('codex', ['ionic', 'ngStorage', 'ngCordova', 'jett.ionic.filter.bar'])
 
 .run(function($ionicPlatform, $state, $ionicPopup, $ionicHistory, $ionicSideMenuDelegate) {
   $ionicPlatform.ready(function() {
@@ -56,7 +56,9 @@ angular.module('codex', ['ionic', 'ngStorage', 'ngCordova'])
   }
 })
 
-.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider){
+.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider, $ionicFilterBarConfigProvider){
+  $ionicFilterBarConfigProvider.theme('positive');
+  $ionicFilterBarConfigProvider.placeholder('Pesquisar');
   $ionicConfigProvider.views.maxCache(0);
   $stateProvider
 

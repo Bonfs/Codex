@@ -83,3 +83,7 @@ table tbody tr td{
   margin-top: -20px; /* Note, this must be half the font size */
   color: white;
 }
+
+button.button-size-busca:before{
+  font-size: 23px !important;
+}
