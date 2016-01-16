@@ -59,7 +59,7 @@ angular.module('codex', ['ionic', 'ngStorage', 'ngCordova', 'jett.ionic.filter.b
 .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider, $ionicFilterBarConfigProvider){
   $ionicFilterBarConfigProvider.theme('positive');
   $ionicFilterBarConfigProvider.placeholder('Pesquisar');
-  $ionicConfigProvider.views.maxCache(0);
+  $ionicConfigProvider.views.maxCache(1);
   $stateProvider
 
   .state('app', {
@@ -86,6 +86,12 @@ angular.module('codex', ['ionic', 'ngStorage', 'ngCordova', 'jett.ionic.filter.b
         controller: 'buscaCtrl'
       }
     }
+  })
+
+  .state('livroInfo', {
+    url: '/livroInfo/:livro',
+    templateUrl: 'view/buscaInfoLivro.html',
+    conroller: 'buscaCtrl'
   })
 
   .state('app.livrosAlugados', {

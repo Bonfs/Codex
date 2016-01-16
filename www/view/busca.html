@@ -11,26 +11,8 @@
 		<ion-content class="has-header">
 			<ion-refresher pulling-icon="ion-arrow-down-b" on-refresh="refreshItems()">
     		</ion-refresher>
-			<!--
-			<form name="formLivros">
-				<label class="item item-input">
-		    		<input name="buscaLivro" type="text" placeholder="Buscar em FEACC" ng-model="busca">
-		  		</label>
-	  		</form>	  		
-	  		<div name="tableLivros" ng-show="busca.length >= 3">
-		  		<div class="row header">
-		          <div class="col">{{titulo}}</div>
-		        </div>
-		        <div class="row" ng-repeat="livro in livros | filter: busca"> < | limitTo:1 
-		          <div class="col">{{livro.nome_livro}}</div>
-		          <div class="col">{{livro.autor}}</div>
-		          <div class="col">{{livro.ano}}</div>
-		          <div class="col">{{livro.codigo}}</div>
-		        </div>
-	        </div>
-	        -->
 	        <ion-list ng-show="busca.length >= 3">
-	        	<ion-item collection-repeat="livro in livros | filter: busca">
+	        	<ion-item collection-repeat="livro in livros | filter: busca" href="#/livroInfo/{{livro.id}}">
 	        		<p><strong>{{livro.nome_livro}}</strong></p>
 	        		<p>{{livro.autor}}</p>
 	        		<p>Localização: {{livro.codigo}} ({{livro.local}})</p>
