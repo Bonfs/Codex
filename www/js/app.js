@@ -122,6 +122,35 @@ angular.module('codex', ['ionic', 'ngStorage', 'ngCordova', 'jett.ionic.filter.b
       }
     }
   })
+      .state('app.Bibliotecas', {
+    url: '/Bibliotecas',
+    views: {
+      'menuContent': {
+        templateUrl: 'view/bibliotecas.html',
+        controller: 'biblioCtrl'
+      }
+    }
+  })
+
+ .state('app.Biblioteca', {
+    url: '/Biblioteca',
+    views: {
+      'menuContent': {
+        templateUrl: 'view/biblioteca_exibicao.html',
+        controller: 'biblio_Exibi_Ctrl'
+      }
+    }
+  })
+  
+  .state('app.Biblioteca_GPS', {
+    url: '/Biblioteca_GPS',
+    views: {
+      'menuContent': {
+        templateUrl: 'view/biblioteca_GPS.html',
+        controller: 'biblio_GPS_Ctrl'
+      }
+    }
+  })
 
   $urlRouterProvider.otherwise('/app/home');
 });
