@@ -95,3 +95,30 @@ button.centralizar{
   margin-left: auto;
   margin-right: auto;
 }
+.item-Biblio{
+	color:inherit;
+	text-decoration:none;
+}
+
+.item-Biblio:visited{
+	color:inherit;
+	text-decoration:none;
+}
+
+.item-Biblio div{
+	padding-top:0.11in;
+	padding-bottom:0.11in;
+	padding-left:0.22in;
+	padding-right:20vw;
+	font-family:Confessions bold;
+	background-color:#FFF;
+	width:100%;
+}
+
+.item-Biblio div i{
+	margin-right:0.22in;
+}
+
+.item-Biblio div:active{
+	background-color:#999;
+}
