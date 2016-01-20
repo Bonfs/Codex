@@ -1,8 +1,9 @@
-angular.module('codex').controller('buscaCtrl', ['$scope', '$ionicHistory', '$ionicFilterBar', '$timeout', '$stateParams',
-	function ($scope, $ionicHistory, $ionicFilterBar, $timeout, $stateParams){
+angular.module('codex').controller('buscaCtrl', ['$scope', '$ionicHistory', '$ionicFilterBar', '$timeout', '$stateParams', '$state',
+	function ($scope, $ionicHistory, $ionicFilterBar, $timeout, $stateParams, $state){
 	var filterBarInstance;
 	$scope.titulo = 'Livros';
 	$scope.livros;//Título, Autor, código+localização, Tipo de obra
+	$scope.busca;
 	console.log($stateParams);
 	function getLivros() {
 		var items = [
@@ -46,6 +47,11 @@ angular.module('codex').controller('buscaCtrl', ['$scope', '$ionicHistory', '$io
     	delete $scope.livro;
     	//console.log('teste');
     }
+
+    $scope.$on('$ionicView.beforeLeave', function () {
+    	//console.log($state.current.name);
+    	$scope.busca = undefined;
+  	});
 
     function isEmpty(obj) {
 
