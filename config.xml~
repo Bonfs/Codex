@@ -4,11 +4,14 @@
   <description>&#xD;&#xD;
         An Ionic Framework and Cordova project.&#xD;&#xD;
     </description>
-
-
+<<<<<<< HEAD
   <author email="matheusbonfim05@gmail.com" href="http://example.com.com/">&#xD;
       Equipe MAYBE&#xD;
-  </author>
+=======
+  <author email="you@example.com" href="http://example.com.com/">&#xD;&#xD;
+      Your Name Here&#xD;&#xD;
+>>>>>>> origin/master
+    </author>
   <content src="index.html"/>
   <access origin="*"/>
   <preference name="webviewbounce" value="false"/>
@@ -16,10 +19,8 @@
   <preference name="DisallowOverscroll" value="true"/>
   <preference name="android-minSdkVersion" value="16"/>
   <preference name="BackupWebStorage" value="none"/>
-  <preference name="AutoHideSplashScreen" value="false" />
   <preference name="SplashScreen" value="screen"/>
-  <preference name="SplashScreenDelay" value="5000"/>
-  <preference name="Orientation" value="portrait" />
+  <preference name="SplashScreenDelay" value="3000"/>
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
@@ -36,11 +37,11 @@
     <splash src="resources/android/splash/drawable-land-xhdpi-screen.png" density="land-xhdpi"/>
     <splash src="resources/android/splash/drawable-land-xxhdpi-screen.png" density="land-xxhdpi"/>
     <splash src="resources/android/splash/drawable-land-xxxhdpi-screen.png" density="land-xxxhdpi"/>
-    <splash src="resources/android/splash/port-ldpi.png" density="port-ldpi"/>
-    <splash src="resources/android/splash/port-mdpi.png" density="port-mdpi"/>
-    <splash src="resources/android/splash/port-hdpi.png" density="port-hdpi"/>
-    <splash src="resources/android/splash/port-xhdpi.png" density="port-xhdpi"/>
-    <splash src="resources/android/splash/port-xhdpi.png" density="port-xxhdpi"/>
-    <splash src="resources/android/splash/port-xhdpi.png" density="port-xxxhdpi"/>
+    <splash src="resources/android/splash/drawable-port-ldpi-screen.png" density="port-ldpi"/>
+    <splash src="resources/android/splash/drawable-port-mdpi-screen.png" density="port-mdpi"/>
+    <splash src="resources/android/splash/drawable-port-hdpi-screen.png" density="port-hdpi"/>
+    <splash src="resources/android/splash/drawable-port-xhdpi-screen.png" density="port-xhdpi"/>
+    <splash src="resources/android/splash/drawable-port-xxhdpi-screen.png" density="port-xxhdpi"/>
+    <splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
   </platform>
 </widget>
