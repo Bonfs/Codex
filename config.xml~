@@ -4,8 +4,13 @@
   <description>&#xD;&#xD;
         An Ionic Framework and Cordova project.&#xD;&#xD;
     </description>
+<<<<<<< HEAD
   <author email="matheusbonfim05@gmail.com" href="http://example.com.com/">&#xD;
       Equipe MAYBE&#xD;
+=======
+  <author email="you@example.com" href="http://example.com.com/">&#xD;&#xD;
+      Your Name Here&#xD;&#xD;
+>>>>>>> origin/master
     </author>
   <content src="index.html"/>
   <access origin="*"/>
