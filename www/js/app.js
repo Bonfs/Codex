@@ -73,7 +73,8 @@ angular.module('codex', ['ionic', 'ngStorage', 'ngCordova', 'jett.ionic.filter.b
     url: '/home',
     views: {
       'menuContent': {
-        templateUrl: 'view/home.html'
+        templateUrl: 'view/home.html',
+        controller: 'homeCtrl'
       }
     }
   })

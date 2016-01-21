@@ -1,5 +1,5 @@
-angular.module('codex').controller('livrosAlugadosCtrl', ['$scope', '$cordovaLocalNotification', '$state', '$ionicSideMenuDelegate','storageService', '$ionicPlatform',
-	function ($scope, $cordovaLocalNotification, $state, $ionicSideMenuDelegate, storageService, $ionicPlatform){
+angular.module('codex').controller('livrosAlugadosCtrl', ['$scope', '$cordovaLocalNotification', '$state', '$ionicSideMenuDelegate','storageService', '$ionicPlatform', '$ionicHistory',
+	function ($scope, $cordovaLocalNotification, $state, $ionicSideMenuDelegate, storageService, $ionicPlatform, $ionicHistory){
 	$scope.livros = storageService.getLivros();	//nome do livro | código | data de devolução
 	$scope.dataAtual = new Date();
 	$scope.livro = {};
@@ -44,4 +44,8 @@ angular.module('codex').controller('livrosAlugadosCtrl', ['$scope', '$cordovaLoc
       });
     };
     console.log($cordovaLocalNotification);
+
+    $scope.goBack = function () {
+    	$ionicHistory.goBack();
+    }
 }])

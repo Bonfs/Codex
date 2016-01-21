@@ -1,0 +1,97 @@
+/**
+	Neste arquivo serão adicionadas mudanças feitas na estrutura do Ionic, como o tamanho do cabeçalho por exemplo.
+	Resoluções de tela - Portrait View
+		ldpi    - 200x320px
+		mdpi    - 320x480px
+		hdpi    - 480x800px
+		xhdpi   - 720x1280px
+		xxhdpi  - 960x1600px
+		xxxhdpi - 1280x1920px
+
+		LDPI: 1 DP = 0,75 px 
+		MDPI: 1 DP = 1 px 
+		HDPI: 1 DP = 1,5 px 
+		xhdpi: 1 DP = 2 px 
+		xxhdpi: 1 DP = 3 px 
+		xxxhdpi: 1 DP = 4 px	
+**/
+
+
+/** LDPI **/
+@media screen and (max-width: 200px){
+	.bar-header {
+	   height: 24px; 
+	}	
+
+	.bar-header .title {
+	   line-height: 24px;
+	}
+	.has-header {
+	   top: 24px;
+	}
+}
+/** MDPI **/
+@media screen and (max-width: 320px){
+	.bar-header {
+	   height: 32px; 
+	}	
+
+	.bar-header .title {
+	   line-height: 32px;
+	}
+	.has-header {
+	   top: 32px;
+	}
+}
+/** HDPI **/
+@media screen and (max-width: 480px){
+	.bar-header {
+	   height: 48px; 
+	}	
+
+	.bar-header .title {
+	   line-height: 48px;
+	}
+	.has-header {
+	   top: 48px;
+	}
+}
+/** XHDPI **/
+@media screen and (min-width: 720px){
+	.bar-header {
+	   height: 64px; 
+	}	
+
+	.bar-header .title {
+	   line-height: 64px;
+	}
+	.has-header {
+	   top: 64px;
+	}
+}
+/** XXHDPI **/
+@media screen and (min-width: 960px){
+	.bar-header {
+	   height: 96px; 
+	}	
+
+	.bar-header .title {
+	   line-height: 96px;
+	}
+	.has-header {
+	   top: 96px;
+	}
+}
+/** XXXHDPI **/
+@media screen and (min-width: 1280px){
+	.bar-header {
+	   height: 128px; 
+	}	
+
+	.bar-header .title {
+	   line-height: 128px;
+	}
+	.has-header {
+	   top: 128px;
+	}
+}
