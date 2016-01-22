@@ -16,8 +16,8 @@
 			<div  ng-repeat="biblio in Bibliotecas">
 				<a class="item item-thumbnail-left" href="#/app/Biblioteca" ng-click="TradeId({{biblio.id}})">
 					<img src="img/{{biblio.img}}">
-					<h2 id="Biblio_{{biblio.id}}" >{{biblio.nome}}</h2><br /><br />
-					<p>{{biblio.descricao}}</p>
+					<h2 id="Biblio_{{biblio.id}}" >{{biblio.sigla}}</h2><br /><br />
+					<p>{{biblio.nome}}</p>
 				</a>
 			</div>
 		  </ion-item>

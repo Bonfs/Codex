@@ -1,14 +1,25 @@
-<ion-view view-title="Bibliotecas">
-	<ion-nav-bar class="bar-positive">
-		<ion-nav-buttons side="left">
-	    	<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-	  	</ion-nav-buttons>
+<ion-view  view-title="{{Bibliotecas.sigla}}">
+	<ion-nav-bar align-title="center" class="bar-positive">
+		<ion-nav-back-button class="ion-android-arrow-back ion-loading-c" side="left"><br />
+		</ion-nav-back-button>
 	</ion-nav-bar>
 	<ion-content class="has-header">
-	<img src="img/{{Bibliotecas.img}}" style='background-color:#EEE;height:40vh;width:100%'>
-		<a class="item-Biblio" href="#/app/Biblioteca_GPS" ><div ><i class='ion-android-pin'></i>{{Bibliotecas.descricao}}</div></a>
-		<a class="item-Biblio" href="tel:+55{{Bibliotecas.Telefone}}"><div ><i class='ion-android-call'></i>{{ConvertTel}}</div></a>
-		<a class="item-Biblio" href="#/app/home"><div ><i class='ion-clock'></i>{{Hora}}</div></a>
-		<a class="item-Biblio" href="#/app/home"><div ><i class='ion-ios-email-outline'></i>{{Email}}</div></a>
+		<div class="pop-up" style="display:none;">
+			<div id="back"></div>
+			<div id="content">
+				<a id="close" onclick="$('.pop-up').css('display','none');"><i class="ion-android-cancel ion-loading-c"></i></a>
+				<div  ng-repeat="BiblioTel in Tel">
+					<a class="item-Biblio" href="tel:+55{{BiblioTel.num}}"><div ><i class='ion-android-call'></i>{{ConvertTel(BiblioTel.num)}}<br />{{BiblioTel.descr}}</div></a>
+				</div>
+			</div>
+		</div>
+		
+		<img id="img-Biblio-Exibi" src="img/{{Bibliotecas.img}}" style='background-color:#EEE;height:40vh;width:100%'>
+		
+		<a class="item-Biblio" href="#/app/Biblioteca_GPS" ><div ><i class='ion-android-pin ion-loading-c'></i>{{Bibliotecas.endereco}}</div></a>
+		<a class="item-Biblio" id="Tel" href="tel:+55{{Bibliotecas.Telefone[0].num}}"><div ><i class='ion-android-call ion-loading-c'></i>{{ConvertTel(Bibliotecas.Telefone[0].num)}}<div id="descr">{{Bibliotecas.Telefone[0].descr}}</div></div></a>
+		<a class="item-Biblio" id="Tels" onclick="$('.pop-up').css('display','block')"><div ><i class='ion-android-call ion-loading-c'></i>Telefones</div></a>
+		<a class="item-Biblio" href="#/app/home"><div ><i class='ion-clock ion-loading-c'></i>{{Hora}}</div></a>
+		<a class="item-Biblio" href="mailto:{{Email}}"><div ><i class='ion-ios-email-outline ion-loading-c'></i>{{Email}}</div></a>
 	</ion-content>
 </ion-view>

@@ -4,7 +4,6 @@ var map;
 var directionsService = new google.maps.DirectionsService();
 
 function createMarker(i,latlng,nome,descr){
-	markers[i] = undefined;
 	markers[i] = new google.maps.Marker({
 		title: nome,
 		//icon: "../../img/marker.png",
@@ -16,17 +15,21 @@ function createMarker(i,latlng,nome,descr){
 	markers[i].addListener('click',function(){
 		if(openedInfo!=undefined){
 			markers[openedInfo].info.close();
+			document.getElementById("form").style.display = "none";
 		}
 		openedInfo=this.num;
+		document.getElementById("form").style.display = "";
 		markers[i].info.open(map,markers[openedInfo]);
 	});
+	google.maps.event.addListener(markers[i].info,"closeclick", function(){
+        document.getElementById("form").style.display = "none";
+    })
+	
 }
-
-for (var i = 0; i < Bibliotecas.length; i++){
-	createMarker(i,new google.maps.LatLng(Bibliotecas[i].lat, Bibliotecas[i].lng),Bibliotecas[i].nome,Bibliotecas[i].descricao);
-}
-
 function initializeMap() {	
+	for (var i = 0; i < Bibliotecas.length; i++){
+		createMarker(i,new google.maps.LatLng(Bibliotecas[i].lat, Bibliotecas[i].lng),Bibliotecas[i].nome,Bibliotecas[i].nome);
+	}
 	if(id>=0){
 		options = {
 			zoom:15,
@@ -39,14 +42,13 @@ function initializeMap() {
 		markers[id].setMap(map);	
 	}else{
 		options = {
-		zoom:15,
-		center:markers[0].position,
+		zoom:14,
+		center:markers[6].position,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		mapTypeControl: false
 		};
 		map = new google.maps.Map(document.getElementById("map_content"),options);
 		for (var i = 0; i < Bibliotecas.length; i++){
-			createMarker(i,new google.maps.LatLng(Bibliotecas[i].lat,Bibliotecas[i].lng),Bibliotecas[i].nome,Bibliotecas[i].descr);
 			markers[i].setMap(map);
 		}
 		
@@ -54,6 +56,9 @@ function initializeMap() {
 
 }
 function TracaRota(origem,i){
+	if(i==undefined){
+		i=openedInfo;
+	}
 	var directionsDisplay = new google.maps.DirectionsRenderer();
 	markers[i].setMap();
 	var request = {
@@ -83,8 +88,10 @@ function TracaRota(origem,i){
 function Geo(i){
 	markers[openedInfo].info.close();
 	var origem;
-	//if (navigator.geolocation) { 
+	var GeoBool={};
+	
 		navigator.geolocation.getCurrentPosition(function (position) {
+		GeoBool=position;
 		var geocoder = new google.maps.Geocoder();
 		geocoder.geocode({
 			"location": new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
@@ -95,7 +102,7 @@ function Geo(i){
 					TracaRota(origem,i);
 				}
 			}
-		);
-   });
-	//}else{}	
+		)},ErrorGPS,{timeout:5000});
+		
+		
 }

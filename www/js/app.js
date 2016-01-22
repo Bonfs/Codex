@@ -41,8 +41,8 @@ angular.module('codex', ['ionic', 'ngStorage', 'ngCordova', 'jett.ionic.filter.b
     else
     {
       //alert($ionicHistory.currentStateName());
-      $state.go('app.home');
-      //$ionicHistory.goBack(-2);
+      //$state.go('app.home');
+	  $ionicHistory.goBack();
     }
   }, 100);
   
