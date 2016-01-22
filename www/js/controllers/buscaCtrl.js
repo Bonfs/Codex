@@ -3,7 +3,7 @@ angular.module('codex').controller('buscaCtrl', ['$scope', '$ionicHistory', '$io
 	var filterBarInstance;
 	$scope.titulo = 'Livros';
 	$scope.livros;//Título, Autor, código+localização, Tipo de obra
-	$scope.busca;
+	$scope.busca = '';
 	console.log($stateParams);
 	function getLivros() {
 		var items = [
@@ -50,7 +50,7 @@ angular.module('codex').controller('buscaCtrl', ['$scope', '$ionicHistory', '$io
 
     $scope.$on('$ionicView.beforeLeave', function () {
     	//console.log($state.current.name);
-    	$scope.busca = undefined;
+    	$scope.busca = '';
   	});
 
     function isEmpty(obj) {

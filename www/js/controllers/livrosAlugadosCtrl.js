@@ -1,4 +1,4 @@
-angular.module('codex').controller('livrosAlugadosCtrl', ['$scope', '$cordovaLocalNotification', '$state', '$ionicSideMenuDelegate','storageService', '$ionicPlatform', '$ionicHistory',
+angular.module('codex').controller('livrosAlugadosCtrl', ['$scope', '$cordovaLocalNotification', '$state', '$ionicSideMenuDelegate', 'storageService', '$ionicPlatform', '$ionicHistory',
 	function ($scope, $cordovaLocalNotification, $state, $ionicSideMenuDelegate, storageService, $ionicPlatform, $ionicHistory){
 	$scope.livros = storageService.getLivros();	//nome do livro | código | data de devolução
 	$scope.dataAtual = new Date();
@@ -23,26 +23,31 @@ angular.module('codex').controller('livrosAlugadosCtrl', ['$scope', '$cordovaLoc
 	$scope.addLivro = addLivro;
 	function addLivro (livro)
 	{
+		var dataDev = new Date(livro.data_devolucao);
+		dataDev.setHours(12);
+		dataDev.setMinutes(0);
+		console.log(dataDev);
 		storageService.addLivro({
 					nome_livro: livro.nome_livro,
-					codigo_livro: livro.codigo_livro,
-					data_devolucao: new Date(livro.data_devolucao)
+					biblioteca_livro: livro.biblioteca_livro,
+					data_devolucao: dataDev
 				});
 		delete $scope.livro;
 	}
 
-	$scope.scheduleSingleNotification = function () {
-      $cordovaLocalNotification.schedule({
-        id: 1,
-        title: 'Title here',
-        text: 'Text here',
-        data: {
-          customProperty: 'custom value'
-        }
-      }).then(function (result) {
-        console.log(result);
-      });
-    };
+	$scope.scheduleDelayedNotification = function () {
+          var now = new Date().getTime();
+          var _10SecondsFromNow = new Date(now + 10 * 1000);
+ 
+          $cordovaLocalNotification.schedule({
+            id: 2,
+            title: 'Warning',
+            text: 'Im so late',
+            at: _10SecondsFromNow
+          }).then(function (result) {
+            console.log('Notification 2 triggered');
+          });
+        };
     console.log($cordovaLocalNotification);
 
     $scope.goBack = function () {

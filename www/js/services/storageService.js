@@ -1,8 +1,9 @@
 angular.module('codex')
 
-.factory('storageService', ['$localStorage', function ($localStorage){
+.factory('storageService', ['$localStorage', '$cordovaLocalNotification', function ($localStorage, $cordovaLocalNotification){
 	$localStorage = $localStorage.$default({
-  		livros: []
+  		livros: [],
+  		id: 0
 	});
 
 	var _getLivros = function () {
@@ -10,7 +11,20 @@ angular.module('codex')
 	}
 
 	var _addLivro = function (livro) {
-		$localStorage.livros.push(livro);
+		//id, title, text, at, icon
+		/**livro.id = $localStorage.id +1;
+		livro.title = livro.nome_livro;
+		livro.text = 'Não esqueça de devolver o seu livro';
+		livro.at = **/
+		// $cordovaLocalNotification.schedule({
+  //           id: $localStorage.id + 1,
+  //           title: livro.nome_livro,
+  //           text: 'Não esqueça de devolver seu livro!',
+  //           at: livro.data_devolucao
+  //         }).then(function (result) {
+  //           console.log('Notification 2 triggered');
+  //         });
+        $localStorage.livros.push(livro);
 	}
 
 	var _removeLivro = function (livro) {
@@ -19,7 +33,9 @@ angular.module('codex')
 
 	var _limpaRegistro = function () {
 		$localStorage.livros = [];
+		$localStorage.id = 0;
 	}
+
 
 	return {
 		getLivros: _getLivros,

@@ -11,15 +11,18 @@
 		<ion-content class="has-header">
 			<ion-refresher pulling-icon="ion-arrow-down-b" on-refresh="refreshItems()">
     		</ion-refresher>
+    		<div ng-show="busca.length < 3" class="aviso">
+	        	<h2>Pesquise um livro.</h2>
+	        </div>
 	        <ion-list ng-show="busca.length >= 3">
-	        	<ion-item collection-repeat="livro in livros | filter: busca" href="#/livroInfo/{{livro.id}}">
+	        	<ion-item ng-repeat="livro in livros | filter: busca" href="#/livroInfo/{{livro.id}}">
 	        		<p><strong>{{livro.nome_livro}}</strong></p>
 	        		<p>{{livro.autor}}</p>
 	        		<p>Localização: {{livro.codigo}} ({{livro.local}})</p>
 	        		<p>Tipo de obra: {{livro.obra}}</p>
 	        	</ion-item>
 	        </ion-list>
-	        <div ng-show="livros.length == 0">
+	        <div ng-show="livros.length == 0 && busca.length >= 3">
 	        	<p>Nenhum resultado encontrado</p>
 	        </div>
 		</ion-content>

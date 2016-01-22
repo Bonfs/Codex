@@ -8,24 +8,13 @@
 		<div class="aviso" ng-show="livros.length == 0" scroll="false">
 			<h2>Nenhum livro alugado.</h2>
 		</div>
-		<div class="tableLivros" ng-show="livros.length > 0">
-			<table name="tableLivros">
-				<thead>
-					<tr>
-						<th>Livro</th>
-						<th>Código</th>
-						<th>Data de devolução</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr ng-repeat="liv in livros">
-						<td>{{liv.nome_livro}}</td>
-						<td>{{liv.codigo_livro}}</td>
-						<td>{{liv.data_devolucao | date: 'dd/MM/yyyy'}}</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+		<ion-list ng-show="livros.length > 0">
+			<ion-item ng-repeat="liv in livros">
+				<h2 style="font-size: 24px;"><strong>{{liv.nome_livro}}</strong></h2>
+				<p><strong>Data de devolução: </strong>{{liv.data_devolucao | date: 'dd/MM/yyyy'}}</p>
+				<p><strong>Biblioteca: </strong> {{liv.biblioteca_livro}}</p>
+			</ion-item>
+		</ion-list>
 	</ion-content>
 	<div class="float-button">
 		  <span class="height-fix">
