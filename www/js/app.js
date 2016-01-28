@@ -57,7 +57,6 @@ angular.module('codex', ['ionic', 'ngStorage', 'ngCordova', 'jett.ionic.filter.b
 })
 
 .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider, $ionicFilterBarConfigProvider){
-  $ionicFilterBarConfigProvider.theme('positive');
   $ionicFilterBarConfigProvider.placeholder('Pesquisar');
   $ionicConfigProvider.views.maxCache(1);
   $stateProvider

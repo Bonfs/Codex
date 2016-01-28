@@ -1,14 +1,15 @@
 <ion-view view-title="Detalhes da Obra" ng-controller="buscaCtrl">
-	<ion-nav-bar class="bar-positive">
+	<ion-nav-bar class="bar-positive bar-azulUFC">
 		<ion-nav-buttons side="left">
-		      <button class="button button-icon icon ion-arrow-left-c" ng-click="goBack()"></button>
+		      <button class="button button-icon icon mdi mdi-arrow-left" ng-click="goBack()"></button>
 		</ion-nav-buttons>
 	</ion-nav-bar>
     <ion-content>
-    	<div>
+    	<div class="row responsive-sm bloco">
     		<p><strong>Título: </strong> {{livro.nome_livro}} </p>
     		<p><strong>Total de exemplares: </strong> {{livro.numLivros}} </p>
     		<p><strong>Disponível no acervo: </strong> {{livro.disponivel}} </p>
     	</div>
+        
     </ion-content>
 </ion-view>

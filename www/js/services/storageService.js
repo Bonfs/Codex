@@ -16,14 +16,14 @@ angular.module('codex')
 		livro.title = livro.nome_livro;
 		livro.text = 'Não esqueça de devolver o seu livro';
 		livro.at = **/
-		// $cordovaLocalNotification.schedule({
-  //           id: $localStorage.id + 1,
-  //           title: livro.nome_livro,
-  //           text: 'Não esqueça de devolver seu livro!',
-  //           at: livro.data_devolucao
-  //         }).then(function (result) {
-  //           console.log('Notification 2 triggered');
-  //         });
+		$cordovaLocalNotification.schedule({
+            id: $localStorage.id + 1,
+            title: livro.nome_livro,
+            text: 'Não esqueça de devolver seu livro!',
+            at: livro.data_devolucao
+          }).then(function (result) {
+            console.log('Notification 2 triggered');
+          });
         $localStorage.livros.push(livro);
 	}
 
