@@ -78,7 +78,7 @@ var Bibliotecas = [
 	  site:"www.caen.ufc.br"
    },
    {	
-	  id:2,
+	  id:7,
       lat: -3.747065,lng: -38.575329,
 	  sigla:"BCF",
       nome: "Biblioteca do Curso de Física ",
@@ -93,7 +93,7 @@ var Bibliotecas = [
       lat: -3.745702,lng: -38.574095,
 	  sigla:"BCM",
       nome: "Biblioteca do Curso de Matemática ",
-	  endereco:"BFD",
+	  endereco:"Campus do Pici - CEP 60451-970 - Fortaleza - CE",
 	  Telefone:[{num:8533667006,descr:""}],
 	  img:"Biblio_1.jpg",
 	  Hora:{PerLet:[7.5,20.0],PerRecEsc:[7.5,17.5]},
@@ -111,7 +111,7 @@ var Bibliotecas = [
 	  email:"biblabomar@gmail.com"
    },
    {	
-	  id:11,
+	  id:10,
       lat: -3.740455,lng: -38.576247,
 	  sigla:"BPGEA",
       nome: "Biblioteca de Pós-Graduação em Economia Agrícola ",
@@ -122,7 +122,7 @@ var Bibliotecas = [
 	  email:"beagri@ufc.br"
    },
    {	
-	  id:12,
+	  id:11,
       lat: -3.743649,lng: -38.575492,
 	  sigla:"BPGE",
       nome: "Biblioteca de Pós-Graduação em Engenharia",

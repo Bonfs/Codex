@@ -1,16 +1,15 @@
 <ion-view view-title="Bibliotecas">
-	<ion-nav-bar align-title="center" class="bar-positive bar-azulUFC">
-		<ion-nav-back-button class="ion-android-arrow-back ion-loading-c" side="left"><br />
-		</ion-nav-back-button>
+	<ion-nav-bar class="bar-positive bar-azulUFC">
+		<ion-nav-back-button class="ion-android-arrow-back ion-loading-c" side="left"></ion-nav-back-button>
 	</ion-nav-bar>
 	<ion-content class="has-header">
 		<div id="form" class="item-input-inset" style="display:none;">
 			<label class="item-input-wrapper">
-				<input type="text" id="route_from" placeholder="Endereço">
+				<input type="text" id="route_from" placeholder="Endereço" />
 			</label>
 			<input type="button" id="submit" value="Traçar rota" onclick="TracaRota($('#route_from').val());"/>
 		</div>
-		<div id ="map_content" data-tap-disabled="true" style="background-color:#999;height:90vh;width:100%">
-		</div>
+		
+		<div id ="map_content" data-tap-disabled="true" style="background-color:#999;height:90vh;width:100%"></div>
 	</ion-content>
 </ion-view>

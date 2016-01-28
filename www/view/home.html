@@ -13,19 +13,39 @@
     	</ion-nav-buttons>
   	</ion-nav-bar>
 	<ion-content class="has-header">
-		<div class="card">
-			<div class="item item-divider" >
-				<button class="button button-small button-light" ><i class="ion-chevron-left"></i></button>
-    			<p style="display: inline-block; text-align: center;">BIBLIOTECA</p>
-    			<button class="button button-small button-light"><i class="ion-chevron-right"></i></button>
-  			</div>
-			<div class="item item-text-wrap">
-				IMAGEM DA BIBLIOTECA
-		  	</div>
-		  	<div class="item item-divider">
-		  	<p>HORÁRIO</p>
-		  	<p>ABERTA/FECHADA</p>
-		  	</div>
-		</div>
+			<div style="width:100%;margin-top:2vh">
+				<div class="" style="padding:0;margin:0;background:#0066A5;height:6vh;padding:0">
+					<button class="button-small button-Menu" ng-click="PreviewBiblio()" style="float:left;background-color:#004B82;color:#EEE;"><i class="ion-chevron-left"></i></button>
+					<button class="button-small button-Menu" ng-click="NextBiblio()" style="float:right;background-color:#004B82;color:#EEE;"><i class="ion-chevron-right"></i></button>
+					<div id="NomeBiblio" style="padding:1vh;width:72.8%;margin:auto;"><p style="text-align:center;color:#EEE;font-size:4vh;margin:0;">{{Biblioteca.sigla}}</p></div>
+				</div>
+				
+				<div style="width:100%;margin:0;height:30vh;">
+					<img id="imgBiblio" src="../img/{{Biblioteca.img}}" style="background-color:#EEE;height:100%;width:100%" />
+				</div>
+				
+				<div id="HoraBiblio" style="padding:0;text-align:center;margin:0;background:#0066A5;padding:0;color:#EEE;font-size:3vh;padding:1vh;height:6vh">
+				<p style="">
+				{{InfoHora}} - {{Hora}}
+				</p>
+				</div>
+			</div>
+			
+			<div style="width:100%;margin-top:2vh">
+				<button class="button-small button-Menu" ng-click="PreviewCurio()" style="float:left;background-color:#FFF;color:#AAA;font-size:5vh;">
+					<i class="ion-chevron-left"></i>
+				</button>
+				
+				<button class="button-small button-Menu" ng-click="NextCurio()" style="float:right;background-color:#FFF;color:#AAA;font-size:5vh;">
+					<i class="ion-chevron-right"></i>
+				</button>
+				
+				<div style="height:100%;padding:1vh;width:72.8%;margin:auto;margin-top:1vh;">
+					<p style="text-align:center;font-size:4vh;color:#333">Você Sabia ?</p>
+				</div>
+			</div>	
+			<div id="Curiosidade" data-tap-disabled="true" style="margin-top:2vh ;margin-left:5vw;width:90vw;height:35vh;display: block;overflow: auto; font-size:3vh; " >
+				<p style="text-align:justify">{{Curiosidade}}</p>
+			</div>
 	</ion-content>
 </ion-view>

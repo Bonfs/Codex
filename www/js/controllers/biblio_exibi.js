@@ -16,6 +16,10 @@ function ConvertHora(num){
 	
 	return Hora;
 }
+function closePopUp(){
+	$('.pop-up').css('display','none');
+	$('#back').css('display','none');
+}
 function ConvertTelefone(Tel){
 	var DDD;
 	if(Tel/100000000000>0){
@@ -30,17 +34,9 @@ function ConvertTelefone(Tel){
 	var StrinTel = "("+DDD+")"+Tel1+"-"+Tel2;
 	return StrinTel;
 }
-function resizeScreen(){
-	if(window.screen.availWidth>window.screen.availHeight){
-		$('#img-Biblio-Exibi').width(window.screen.availWidth/2);
-		$('#img-Biblio-Exibi').css('margin-left','25vw');
-	}else{
-		$('#img-Biblio-Exibi').width(window.screen.availWidth);
-		$('#img-Biblio-Exibi').css('margin-left','0vw');
-	}
-}
 angular.module('codex')
 .controller('biblio_Exibi_Ctrl', ['$scope','$ionicHistory',function ($scope,$ionicHistory) {
+		
 		$scope.myGoBack = function() {
 			$ionicHistory.goBack();
 		};
@@ -58,26 +54,45 @@ angular.module('codex')
 				}
 				$('#Tels').css('display','none');
 			}
-			$scope.Bibliotecas = Bibliotecas[id];
+			
+			$scope.Biblioteca = Bibliotecas[id];
 			$scope.ConvertTel = ConvertTelefone;
+			$scope.ConvertHora = ConvertHora;
 			$scope.Email = Bibliotecas[id].email;
 			$scope.Tel = Bibliotecas[id].Telefone;
+			$scope.HoraVet = Bibliotecas[id].HoraVet;
+			
 			d = new Date;
 			n = d.getDay();
-			var Hora="";	
+			var Hora="";
+			var InfoHora="";			
 			if(n==0){
 				Hora+=ConvertHora(Bibliotecas[id].Hora.Domingo_Abre)+" às "+ConvertHora(Bibliotecas[id].Hora.Domingo_Fecha);
+				InfoHora="Domingo";
 			}else if(n==7){
 				Hora+=ConvertHora(Bibliotecas[id].Hora.Sabado_Abre)+" às "+ConvertHora(Bibliotecas[id].Hora.Sabado_Fecha);
+				InfoHora="Sabado";
 			}else{
 				Hora+=ConvertHora(Bibliotecas[id].Hora.PerLet[0])+" às "+ConvertHora(Bibliotecas[id].Hora.PerLet[1]);
+				InfoHora="Segunda à Sexta";
 			}
 			$scope.Hora = Hora;
-			resizeScreen();
-		});
-		
-		$(window).bind('resize', function() {
-			resizeScreen();
+			$scope.InfoHora = InfoHora;
+
+			var NoOp = 0;
+			if(Bibliotecas[id].Hora.PerLet == undefined){
+				$('.PerLet').css('display','none');NoOp++;
+			}
+			if(Bibliotecas[id].Hora.PerRecEsc == undefined){
+				$('.PerRecEsc').css('display','none');NoOp++;
+			}
+			if(Bibliotecas[id].Hora.Sab == undefined){
+				$('.Sab').css('display','none');NoOp++;
+			}
+			if(NoOp == 3){
+				$('#Hora').css('display','none');
+			}
+			
 		});
 		
 }]);

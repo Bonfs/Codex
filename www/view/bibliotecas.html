@@ -4,23 +4,22 @@
 	    	<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
 	  	</ion-nav-buttons>
 	</ion-nav-bar>
-	<ion-content class="has-header">
+	<ion-content align-title="left" class="has-header">
 		<div class="aviso" ng-show="Bibliotecas.length == 0" scroll="false">
 			<h2>Não há Bibliotecas...</h2>
 		</div>
 		<ion-list>
-		  <ion-item >
-			<a class="item item-thumbnail-left " ng-click="TradeId(-1);" href="#/app/Biblioteca_GPS" >
+			<a class="item item-thumbnail-left" ng-click="TradeId(-1);" href="#/app/Biblioteca_GPS" >
 			  <h2 id="Todas">Todas as bibliotecas</h2><br /><br />
 			</a>
+			
 			<div  ng-repeat="biblio in Bibliotecas">
-				<a class="item item-thumbnail-left" href="#/app/Biblioteca" ng-click="TradeId({{biblio.id}})">
+				<a class="item item-thumbnail-left" ng-href="#/app/Biblioteca" ng-click="TradeId({{biblio.id}})" >
 					<img src="img/{{biblio.img}}">
 					<h2 id="Biblio_{{biblio.id}}" >{{biblio.sigla}}</h2><br /><br />
 					<p>{{biblio.nome}}</p>
 				</a>
 			</div>
-		  </ion-item>
 		</ion-list>
 	</ion-content>
 </ion-view>
