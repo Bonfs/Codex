@@ -125,9 +125,30 @@ div#Texto{
 	padding:0px;
 	width:90vw;
 }
-.button-Menu{
+.button-Home{
 	padding:0;width:15%;height:6vh;border:none;
 }
+#MenuTopo button.button-small.button-Home{
+	font-size:3vh;background-color:#004B82;color:#EEE;
+}
+#VoceSabia{
+	width:100%;margin-top:2vh
+}
+#VoceSabia button.button-small.button-Home{
+	background-color:#FFF;color:#AAA;font-size:5vh;
+}
+#VoceSabia div{
+	padding:1vh;margin-top:1vh;text-align:center;font-size:4vh;color:#333;
+}
+#Curiosidade{
+	margin-top:2vh ;
+	margin-left:5vw;
+	width:90vw;
+	height:35vh;
+	font-size:3vh; 
+	text-align:justify;
+}
+
 @keyframes bounceToLeft {
    0% {
       transform: translateX(0vw);
@@ -188,4 +209,10 @@ div#Texto{
 a.item.item-thumbnail-left{
 	margin:2vh;
 	box-shadow: 2px 2px 2px #888888;
+}
+.pac-container:after {
+    /* Disclaimer: not needed to show 'powered by Google' if also a Google Map is shown */
+
+    background-image: none !important;
+    height: 0px;
 }

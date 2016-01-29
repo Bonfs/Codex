@@ -38,13 +38,17 @@ angular.module('codex', ['ionic', 'ngStorage', 'ngCordova', 'jett.ionic.filter.b
         }
       })
     }
+	else if($state.current.name == 'app.Bibliotecas' || $state.current.name == 'app.codificacao' || $state.current.name == 'app.livrosAlugados' || $state.current.name == 'app.busca')
+	{
+		$state.go('app.home');
+	}
     else
     {
       //alert($ionicHistory.currentStateName());
       //$state.go('app.home');
 	  $ionicHistory.goBack();
     }
-  }, 100);
+  },100);
   
   if($state.current.name == 'app.addLivro')
   {
