@@ -28,7 +28,9 @@ angular.module('codex', ['ionic', 'ngStorage', 'ngCordova', 'jett.ionic.filter.b
     {
       $ionicPopup.confirm({
         title: 'Deseja sair?',
-        template: 'Você tem certeza que deseja sair do Codex?'
+        template: 'Você tem certeza que deseja sair do Codex?',
+        okText: 'Sim!',
+        cancelText: 'Cancelar'
       })
       .then(function (res){
         if (res)
@@ -83,7 +85,7 @@ angular.module('codex', ['ionic', 'ngStorage', 'ngCordova', 'jett.ionic.filter.b
   })
 
   .state('app.busca', {
-    url: '/busca',
+    url: '/busca/:barPesquisaAtivada',
     views: {
       'menuContent': {
         templateUrl: 'view/busca.html',

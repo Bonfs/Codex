@@ -1,21 +1,11 @@
-angular.module('codex').controller('buscaCtrl', ['$scope', '$ionicHistory', '$ionicFilterBar', '$timeout', '$stateParams', '$state',
-	function ($scope, $ionicHistory, $ionicFilterBar, $timeout, $stateParams, $state){
+angular.module('codex').controller('buscaCtrl', ['$scope', '$ionicHistory', '$ionicFilterBar', '$timeout', '$stateParams', '$state', 'acervoDB',
+	function ($scope, $ionicHistory, $ionicFilterBar, $timeout, $stateParams, $state , acervoDB){
 	var filterBarInstance;
 	$scope.titulo = 'Livros';
-	$scope.livros;//Título, Autor, código+localização, Tipo de obra
+	$scope.livros = acervoDB.getAcervo();//Título, Autor, código+localização, Tipo de obra
 	$scope.busca = '';
-	console.log($stateParams);
-	function getLivros() {
-		var items = [
-			{id: 1, nome_livro: 'Comunicação através das cores [manuscrito]/2002', codigo: 'M 651.3741 F936 c', local: 'BFEAAC', autor: 'Freitas, Luciana de', ano: 2002, obra: 'Monografias'},
-			{id: 2, nome_livro: 'Livro 2', codigo: '443f.20', local: 'BCT', autor: 'BONFIM', ano: 2000, obra: 'livro'},
-			{id: 3, nome_livro: 'Criataruas Mágicas e Onde Habitam', codigo: '520.a5', local: 'BCT', autor: 'J.K. Rowling', ano: 2005, obra: 'livro'}
-		];
-		$scope.livros = items;
-	};
-	getLivros();
-	if(!isEmpty($stateParams))
-		$scope.livro = $scope.livros[$stateParams.livro - 1];
+	console.log($stateParams.barPesquisaAtivada);
+
 	$scope.showFilterBar = function () {
 	    filterBarInstance = $ionicFilterBar.show({
 	        items: $scope.livros,
@@ -27,6 +17,10 @@ angular.module('codex').controller('buscaCtrl', ['$scope', '$ionicHistory', '$io
 	            $scope.busca = filterText
 	          }
 	        },
+	        cancel: function(){
+	        	//console.log('cancel');
+	        	$stateParams.barPesquisaAtivada = false;
+	        }
 	      });
 	    };	
 
@@ -37,7 +31,7 @@ angular.module('codex').controller('buscaCtrl', ['$scope', '$ionicHistory', '$io
       }
 
       $timeout(function () {
-      	$scope.livros = $scope.livros;
+      	$scope.livros = acervoDB.getAcervo();
         $scope.$broadcast('scroll.refreshComplete');
       }, 1000);
     };
@@ -72,13 +66,11 @@ angular.module('codex').controller('buscaCtrl', ['$scope', '$ionicHistory', '$io
 
 	    return true;
 	}
+
+	//Determina a informação do livro escolhido na view 'buscaLivroInfo.html'
+	if(!isEmpty($stateParams))
+		$scope.livro = $scope.livros[$stateParams.livro - 1];
+	//Ativa a barra de pesquisa quando clica a 'lupa' na home
+	if($stateParams.barPesquisaAtivada == 'true')
+		$scope.showFilterBar();
 }])
-
-
-/**
-[
-			{id: 1, nome_livro: 'Livro 1', codigo: '333f.8', autor: 'M. Bonfim', ano: 1999},
-			{id: 2, nome_livro: 'Livro 2', codigo: '443f.20', autor: 'BONFIM', ano: 2000},
-			{id: 3, nome_livro: 'Criataruas Mágicas e Onde Habitam', codigo: '520.a5', autor: 'J.K. Rowling', ano: 2005}
-		];
-		**/

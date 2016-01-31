@@ -59,6 +59,8 @@
 	.has-header {
 	   top: 48px;
 	}
+
+	
 }
 /** XHDPI **/
 @media screen and (min-width: 720px){
@@ -99,3 +101,7 @@
 	   top: 128px;
 	}
 }
+
+.title-left {
+		margin-top: 2px !important;
+	}

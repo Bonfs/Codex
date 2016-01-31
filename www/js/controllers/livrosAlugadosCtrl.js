@@ -1,5 +1,5 @@
-angular.module('codex').controller('livrosAlugadosCtrl', ['$scope', '$cordovaLocalNotification', '$state', '$ionicSideMenuDelegate', 'storageService', '$ionicPlatform', '$ionicHistory',
-	function ($scope, $cordovaLocalNotification, $state, $ionicSideMenuDelegate, storageService, $ionicPlatform, $ionicHistory){
+angular.module('codex').controller('livrosAlugadosCtrl', ['$scope', '$cordovaLocalNotification', '$state', '$ionicSideMenuDelegate', 'storageService', '$ionicPlatform', '$ionicHistory', '$timeout',
+	function ($scope, $cordovaLocalNotification, $state, $ionicSideMenuDelegate, storageService, $ionicPlatform, $ionicHistory, $timeout){
 	$scope.livros = storageService.getLivros();	//nome do livro | código | data de devolução
 	$scope.dataAtual = new Date();
 	$scope.livro = {};
@@ -35,6 +35,13 @@ angular.module('codex').controller('livrosAlugadosCtrl', ['$scope', '$cordovaLoc
 		delete $scope.livro;
 	}
 
+	$scope.removeLivro = removeLivro;
+	function removeLivro (livro)
+	{
+		storageService.removeLivro(livro);
+	}
+
+	//agenda uma notificação para daqui a 10 segundos
 	$scope.scheduleDelayedNotification = function () {
           var now = new Date().getTime();
           var _10SecondsFromNow = new Date(now + 10 * 1000);

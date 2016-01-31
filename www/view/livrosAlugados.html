@@ -1,7 +1,7 @@
 <ion-view view-title="Livros Alugados">
 	<ion-nav-bar class="bar-positive bar-azulUFC">
 		<ion-nav-buttons side="left">
-	    	<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+	    	<button menu-toggle="left" class="button button-icon icon mdi mdi-menu"></button>
 	  	</ion-nav-buttons>
 	</ion-nav-bar>
 	<ion-content class="has-header">
@@ -10,17 +10,21 @@
 		</div>
 		<ion-list ng-show="livros.length > 0">
 			<ion-item ng-repeat="liv in livros">
-				<h2 style="font-size: 24px;"><strong>{{liv.nome_livro}}</strong></h2>
-				<p><strong>Data de devolução: </strong>{{liv.data_devolucao | date: 'dd/MM/yyyy'}}</p>
-				<p><strong>Biblioteca: </strong> {{liv.biblioteca_livro}}</p>
+				<div>
+					<h2 style="font-size: 24px;"><strong>{{liv.nome_livro}}</strong></h2>
+					<button class="button button-icon icon mdi mdi-delete delete" ng-click="removeLivro(liv)"></button>
+					<p><strong>Data de devolução: </strong>{{liv.data_devolucao | date: 'dd/MM/yyyy'}}</p>
+					<p><strong>Biblioteca: </strong> {{liv.biblioteca_livro}}</p>
+				</div>
 			</ion-item>
 		</ion-list>
+		
 	</ion-content>
 	<div class="float-button">
-		  <span class="height-fix">
-		    <a href="#/app/addLivrosAlugados" class="content">
-		      <i class="ion-plus-round"> </i>
-		    </a>
-		  </span>
-		</div>
+		<a href="#/app/addLivrosAlugados">
+			<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+				<i class="material-icons">add</i>
+			</button>
+		</a>
+	</div>
 </ion-view>

@@ -20,14 +20,21 @@ angular.module('codex')
             id: $localStorage.id + 1,
             title: livro.nome_livro,
             text: 'Não esqueça de devolver seu livro!',
+            icon: '../resources/android/icon/ldpi-icon.png',
             at: livro.data_devolucao
           }).then(function (result) {
-            console.log('Notification 2 triggered');
+            console.log('Livro Cadastrado!');
           });
+		livro.id = $localStorage.id + 1;
+        $localStorage.id += 1;
         $localStorage.livros.push(livro);
 	}
 
 	var _removeLivro = function (livro) {
+		var i = $localStorage.livros.indexOf(livro);
+		$cordovaLocalNotification.cancel($localStorage.livros[i].id).then(function (){
+			console.log('Notificação cancelada!');
+		});
 		$localStorage.livros.splice($localStorage.livros.indexOf(livro), 1);
 	}
 

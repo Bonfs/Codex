@@ -6,7 +6,7 @@
 	</ion-nav-bar>
 	<ion-content class="has-header" scroll="false">
 		<form name="addLivroForm" ng-submit="addLivro(livro)">
-			<div class="list">
+			<div class="list ">
 			  <label class="item item-input">
 			    <span class="input-label">Livro</span>
 			    <input type="text" ng-model="livro.nome_livro" ng-required="true"/>
@@ -20,7 +20,7 @@
 			    <input type="date" ng-model="livro.data_devolucao" min="{{dataAtual | date: 'yyyy-MM-dd'}}" ng-required="true"/>
 			  </label>
 			</div>
-			<button type="submit" class="button button-positive centralizar">
+			<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent centralizar">
   				Salvar!
 			</button>
 		</form>

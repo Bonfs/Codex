@@ -38,17 +38,6 @@ body {
 	color: #9E9E9E;
 }
 
-table thead{
-	background-color: lightgrey;
-}
-table, th, td{
-	border: solid 1px grey;
-	padding: 3px;
-}
-table tbody tr td{
-	text-align: center;
-}
-
 .codificacao{
 	width: 100%;
 	background-color: white;
@@ -59,30 +48,16 @@ table tbody tr td{
 	height: auto;
 }
 
+/*Float Action Button */
 .float-button {
-  border-radius: 50%;
-  min-width: 42px;
-  max-width: 224px;
-  padding: 30px;
-  font-size: 40px;
-  background: #1565c0;
-  position: fixed;
-  bottom: 32px; /* Adjust to where you want it */
-  right: 32px; /* Adjust to where you want it */
-  z-index: 9999;
-}
-.float-button .height_fix {
-  margin-top: 100%;
-}
-.float-button .content {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  height: 100%;
-  width: 100%;
-  text-align: center;
-  margin-top: -20px; /* Note, this must be half the font size */
-  color: white;
+    bottom: 32px;
+    right: 32px;
+    position: fixed;
+    z-index: 9999;
+  }
+
+.float-button .mdl-button--colored{
+  background-color: #004B82 !important;
 }
 
 button.button-size-busca:before{
@@ -91,9 +66,18 @@ button.button-size-busca:before{
 
 button.centralizar{
   display: block;
-  width: 120px;
   margin-left: auto;
   margin-right: auto;
+}
+.mdl-button--accent{
+  background-color: #004B82 !important;
+}
+
+.delete{
+	float: right;
+	display: block !important;
+	fill: #999999;
+	color: #999999;
 }
 
 .ion-android-arrow-back{
