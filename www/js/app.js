@@ -6,7 +6,9 @@
 //console.log('teste;')
 angular.module('codex', ['ionic', 'ngStorage', 'ngCordova', 'jett.ionic.filter.bar'])
 
-.run(function($ionicPlatform, $state, $ionicPopup, $ionicHistory, $ionicSideMenuDelegate) {
+.run(function($ionicPlatform, $state, $ionicPopup, $ionicHistory, $ionicSideMenuDelegate, $cordovaStatusbar) {
+  //$cordovaStatusbar.styleHex('#002946');
+  console.log(ionic.Platform.isAndroid())
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -19,7 +21,14 @@ angular.module('codex', ['ionic', 'ngStorage', 'ngCordova', 'jett.ionic.filter.b
       cordova.plugins.Keyboard.disableScroll(true);
     }
     if(window.StatusBar) {
-      StatusBar.styleDefault();
+      if(ionic.Platform.isAndroid()){
+        window.StatusBar.overlaysWebView(false);
+        window.StatusBar.backgroundColorByHexString("#003C66");
+      }
+      else{
+        StatusBar.styleDefault();  
+      }
+      
     }
   });
   $ionicPlatform.registerBackButtonAction ( function (){
