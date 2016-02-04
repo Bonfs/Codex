@@ -5,14 +5,14 @@
 	  	</ion-nav-buttons>
 	</ion-nav-bar>
 	<ion-content class="has-header">
-		<div class="aviso" ng-show="livros.length == 0" scroll="false">
-			<h2>Nenhum livro alugado.</h2>
+		<div class="empty-screen" ng-show="livros.length == 0" scroll="false">
+			<img src="img/livroscadastrado.png">
 		</div>
 		<ion-list ng-show="livros.length > 0">
 			<ion-item ng-repeat="liv in livros">
 				<div>
 					<h2 style="font-size: 24px;"><strong>{{liv.nome_livro}}</strong></h2>
-					<button class="button button-icon icon mdi mdi-delete delete" ng-click="removeLivro(liv)"></button>
+					<button class="button button-icon icon mdi mdi-delete delete color-icon" ng-click="removeLivro(liv)"></button>
 					<p><strong>Data de devolução: </strong>{{liv.data_devolucao | date: 'dd/MM/yyyy'}}</p>
 					<p><strong>Biblioteca: </strong> {{liv.biblioteca_livro}}</p>
 				</div>

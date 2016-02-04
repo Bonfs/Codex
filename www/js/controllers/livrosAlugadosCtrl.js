@@ -6,7 +6,7 @@ angular.module('codex').controller('livrosAlugadosCtrl', ['$scope', '$cordovaLoc
 	//var date = new Date();
 	//console.log(date);			//date.toLocaleDateString('pt-BR')
 	//storageService.limpaRegistro();
-	console.log($scope.livros);
+	//console.log($scope.livros);
 	//console.log($state.current.name);
 
 	//impede que o menu abra arrastando
@@ -55,7 +55,7 @@ angular.module('codex').controller('livrosAlugadosCtrl', ['$scope', '$cordovaLoc
             console.log('Notification 2 triggered');
           });
         };
-    console.log($cordovaLocalNotification);
+    //console.log($cordovaLocalNotification);
 
     $scope.goBack = function () {
     	$ionicHistory.goBack();

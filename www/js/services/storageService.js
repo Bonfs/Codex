@@ -20,7 +20,7 @@ angular.module('codex')
             id: $localStorage.id + 1,
             title: livro.nome_livro,
             text: 'Não esqueça de devolver seu livro!',
-            icon: '../resources/android/icon/ldpi-icon.png',
+            icon: 'res://ldpi-icon.png',
             at: livro.data_devolucao
           }).then(function (result) {
             console.log('Livro Cadastrado!');

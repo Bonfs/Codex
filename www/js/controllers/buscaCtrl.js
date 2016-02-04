@@ -4,7 +4,7 @@ angular.module('codex').controller('buscaCtrl', ['$scope', '$ionicHistory', '$io
 	$scope.titulo = 'Livros';
 	$scope.livros = acervoDB.getAcervo();//Título, Autor, código+localização, Tipo de obra
 	$scope.busca = '';
-	console.log($stateParams.barPesquisaAtivada);
+	//console.log($stateParams.barPesquisaAtivada);
 
 	$scope.showFilterBar = function () {
 	    filterBarInstance = $ionicFilterBar.show({

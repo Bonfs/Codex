@@ -8,7 +8,7 @@ angular.module('codex', ['ionic', 'ngStorage', 'ngCordova', 'jett.ionic.filter.b
 
 .run(function($ionicPlatform, $state, $ionicPopup, $ionicHistory, $ionicSideMenuDelegate, $cordovaStatusbar) {
   //$cordovaStatusbar.styleHex('#002946');
-  console.log(ionic.Platform.isAndroid())
+  //console.log(ionic.Platform.isAndroid())
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
