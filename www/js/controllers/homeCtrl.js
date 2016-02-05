@@ -44,7 +44,7 @@ angular.module('codex')
 			id=Bibliotecas.length-1;
 		}
 	}
-	function AlterClass(div,num,Class){
+	function AlterClass(num,Class){
 		if(num){
 			HoraBiblio.classList.add(Class);
 			imgBiblio.classList.add(Class);
