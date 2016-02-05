@@ -6,6 +6,7 @@ angular.module('codex')
 		id=num;
 	}
 	$scope.TradeId = TradeId;	
+
 }]);
 
 

@@ -50,6 +50,10 @@ angular.module('codex')
 		var Tels = document.getElementById('Tels');
 		var Tel = document.getElementById('Tel');
 		
+		$scope.goBack = function () {
+			$ionicHistory.goBack();
+		}
+		
 		$scope.$on('$ionicView.enter', function(){
 			
 			$scope.Biblioteca = Bibliotecas[id];

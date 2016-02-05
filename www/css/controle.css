@@ -1,18 +1,8 @@
 .ion-android-arrow-back{
-	margin-left:3vh;
-	margin-right:3vh;
+	margin:0;
 	border-style:none;
 }
-.ion-android-arrow-back.ion-loading-c{
-	font-size: 7vw;
-	background-color:#D9D9D9;
-}
-.item-Biblio{
-	color:inherit;
-	text-decoration:none;
-}
-
-.item-Biblio:visited{
+.item-Biblio:visited , .item-Biblio{
 	color:inherit;
 	text-decoration:none;
 }
@@ -25,18 +15,14 @@
 	background-color:#FFF;
 	width:100%;
 }
-#content-Tels{
-max-height:25vh;
-overflow:hidden;
-}
 #content-Tels i{
-color:#004B82;
+	color:#004B82;
 	position:absolute;
 	margin:0.22in;
 }
 #content-Tels div a{
-width:100vw;
-margin:0;
+	width:100vw;
+	margin:0;
 }
 #content-Tels div a div{
 	padding-left:0.66in;
@@ -45,24 +31,6 @@ margin:0;
 background-color:#FFF;
 }
 
-.pop-up{
-	z-index:1000;
-	display:none;
-}
-#pop-up-Data{
-	text-align:center;
-}
-.pop-up .item-Biblio div{
-	padding-top:0.33in;
-	padding-bottom:0.33in;
-	padding-left:0.22in;
-	padding-right:20vw;
-	font-family:Confessions bold;
-	background-color:#FFF;
-	width:100%;
-}
-#pop-up-Data .row div.col{
-}
 .item-Biblio div i{
 	margin-right:0.22in;
 }
@@ -70,51 +38,12 @@ background-color:#FFF;
 .item-Biblio.activated div{
 	background-color:#D9D9D9;
 }
-.pop-up{
-position:absolute;
-width:100vw;
-border-style:none;
-}
-div#back{
-z-index:11;
-display:none;
-position:absolute;
-height:101vh;
-width:100%;
-background:#333;
-border-style:none;
-opacity:0.4;
-}
-.pop-up div#content{
-position:absolute;
-width:95vw;
-margin-left:2.5vw;
-margin-top:2.5vh;
-background:#FFF;
-border-style:none;
-}
-.pop-up div#content a#close{
-position:absolute;
-left:88vw;
-z-index:1;
-}
-.pop-up div#content div.list a{
-float:left;
-margin-top:0vh;
-margin-right:0vh;
-z-index:1000;
-} 
-#Tel {display:none;}
-#Tels{display:none;}
-#Tel#descrdescr{
-	background-color:inherit;
-}
-.row{
+/*.row{
 	border:none;
 }
  .row .header{
 	border:none ;
-}
+}*/
 i.ion-android-cancel.ion-loading-c{
 	color:#387ef7;
 	font-size: 8vw;
@@ -142,7 +71,6 @@ div#Texto{
 	background-color:rgba(0, 0, 0, 0);
 	position:relative;
 	float:top;
-	margin:;
 	padding:0px;
 	width:90vw;
 }
@@ -170,65 +98,6 @@ div#Texto{
 	font-size:3vh; 
 	text-align:justify;
 }
-
-@keyframes bounceToLeft {
-   0% {
-      transform: translateX(0vw);
-   }
-   5% {
-      opacity: 1;
-      transform: translateX(5vw);
-   }
-   50%{
-	  opacity: 0;
-      transform: translateX(-100vw);
-   }
-   55%{
-	  opacity: 0;
-      transform: translateX(195vw);
-   }
-   100% {
-      opacity: 1;
-      transform: translateX(0vw);
-   }
-} 
-@keyframes bounceToRight {
-   0% {
-      transform: translateX(0vw);
-   }
-   5% {
-      opacity: 1;
-      transform: translateX(-5vw);
-   }
-   50%{
-	  opacity: 0;
-      transform: translateX(195vw);
-   }
-   55%{
-	  opacity: 0;
-      transform: translateX(-100vw);
-   }
-   100% {
-      opacity: 1;
-      transform: translateX(0vw);
-   }
-} 
-.bounceLeft {
-	animation-duration: 1s;
-	-webkit-animation-name: bounceToLeft;
-	animation-name: bounceToLeft;
- }
- .bounceRight {
-	animation-duration: 1s;
-	-webkit-animation-name: bounceToRight;
-	animation-name: bounceToRight;
- }
- .bar-positive.bar{
-	/* background-color:#004B82;
-	 height:0.55in;*/
-	 box-shadow: 2px 2px 2px #888888;
-}
-
 .item-text-wrap h2{
     line-height: 150% !important;
 }
@@ -237,12 +106,100 @@ a.item.item-thumbnail-left{
 	border-radius:4px;
 	box-shadow: 1px 1px 1px #BBB;
 }
-a.item.item-thumbnail-left h2{
- margin:0px;
-}
 .pac-container:after {
     /* Disclaimer: not needed to show 'powered by Google' if also a Google Map is shown */
-
     background-image: none !important;
     height: 0px;
 }
+.title.title-left.header-item{
+	/* Alinhar Header */
+	left:0.55in !important;
+}
+
+
+@keyframes bounceToLeft {
+   0% {
+	   opacity: 1;
+      transform: translateX(0vw);
+   }
+   5% {
+      transform: translateX(5vw);
+   }
+   50%{
+	  opacity: 0;
+      transform: translateX(-100vw);
+   }
+   100%{
+	   opacity: 0;
+	  transform: translateX(0vw);
+   }
+} 
+@keyframes bounceToRight {
+   0% {
+	   opacity: 1;
+      transform: translateX(0vw);
+   }
+   5% {
+      transform: translateX(5vw);
+   }
+   50%{
+	  opacity: 0;
+      transform: translateX(100vw);
+   }
+   100%{
+	   opacity: 0;
+	  transform: translateX(0vw);
+   }
+} 
+@keyframes bounceFromLeft {
+   0% {
+	   opacity: 0;
+      transform: translateX(-100vw);
+   }
+   5% {
+      opacity: 0.5;
+      transform: translateX(-10vw);
+   }
+   100%{
+	  opacity: 1;
+      transform: translateX(0vw);
+   }
+} 
+@keyframes bounceFromRight {
+   0% {
+	   opacity: 0;
+      transform: translateX(100vw);
+   }
+   5% {
+      opacity: 0.5;
+      transform: translateX(10vw);
+   }
+   100%{
+	  opacity: 1;
+      transform: translateX(0vw);
+   }
+} 
+.bounceToLeft,.bounceToRight,.bounceFromLeft,.bounceFromRight{
+	animation-duration: 0.5s;
+	opacity:0;
+}
+.bounceToLeft {
+	-webkit-animation-name: bounceToLeft;
+	animation-name: bounceToLeft;
+ }
+ .bounceToRight {
+	-webkit-animation-name: bounceToRight;
+	animation-name: bounceToRight;
+ }
+ .bounceFromLeft {
+	-webkit-animation-name: bounceFromLeft;
+	animation-name: bounceFromLeft;
+ }
+ .bounceFromRight {
+	-webkit-animation-name: bounceFromRight;
+	animation-name: bounceFromRight;
+ }
+.button.ng-binding.button-positive{
+	 background-color:#004B82;
+	 border:none;
+ }

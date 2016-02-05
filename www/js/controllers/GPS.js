@@ -7,20 +7,13 @@ var GeoBool;
 
 function closeMarkers(){
 	markers[openedInfo].info.close();
-	//document.getElementsByClassName("example").classList.add('wait')
-	//document.getElementsByClassName("example").classList.remove("")
 	document.getElementsByClassName("filter-bar-in")[0].classList.add('filter-bar-out')
-	//$(".filter-bar-in").addClass("filter-bar-out");
 	document.getElementsByClassName("filter-bar-in")[0].classList.remove("filter-bar-in")
-	//$(".filter-bar-in").removeClass("filter-bar-in");
 	document.getElementsByClassName('pac-container')[0].style.display = 'none';
-	//$("pac-container").css('display','none');
 	document.getElementById("route_from").value = "";
-	//$("#route_from").val("");
 	setTimeout(function(){
 		document.getElementsByClassName('pac-container')[0].style.height = 0;
-		//$(".filter-bar").css('height','0');
-		},500)
+	},500)
 	openedInfo=undefined;
 }
 
@@ -37,13 +30,6 @@ function createMarker(i,latlng,nome,descr){
 		if(openedInfo!=undefined){
 			closeMarkers();
 		}
-		
-		/*if (!$(".filter-bar-wrapper").hasClass( "filter-bar-in" )){
-			$(".filter-bar-wrapper").addClass("filter-bar-in");
-		}else{			
-			$("div.filter-bar-out").addClass("filter-bar-in");
-			$("div.filter-bar-out").removeClass("filter-bar-out");
-		}*/
 		if (!document.getElementsByClassName("filter-bar-wrapper")[0].classList.contains("filter-bar-in")){
 			document.getElementsByClassName("filter-bar-wrapper")[0].classList.add('filter-bar-in');
 		}else{			
@@ -55,10 +41,8 @@ function createMarker(i,latlng,nome,descr){
 		id=this.num;
 		markers[i].info.open(map,markers[openedInfo]);
 		document.getElementsByClassName('filter-bar')[0].style.height = document.getElementsByTagName('ion-header-bar').offsetHeight;
-		//$(".filter-bar").css('height',$('ion-header-bar').height());
 		
 		AtualBible();
-		
 		
 	});
 	google.maps.event.addListener(markers[i].info,"closeclick", function(){
@@ -83,8 +67,8 @@ function initializeMap() {
 		markers[id].setMap(map);	
 	}else{
 		options = {
-		zoom:14,
-		center:markers[6].position,
+		zoom:13,
+		center:markers[2].position,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		mapTypeControl: false
 		};
@@ -148,6 +132,9 @@ function Geo(i){
 
 angular.module('codex')
 .controller('biblio_GPS_Ctrl', ['$scope','$ionicHistory', '$ionicPopup','$ionicFilterBar', function ($scope,$ionicHistory, $ionicPopup,$ionicFilterBar ) {
+	$scope.goBack = function () {
+		$ionicHistory.goBack();
+	}
 	$scope.Biblioteca = Bibliotecas[id];
 	$scope.closeMarkers=closeMarkers;
 	$scope.Bibliotecas = Bibliotecas;

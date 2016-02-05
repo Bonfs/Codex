@@ -19,7 +19,7 @@
 		<ion-list>
 			<div  ng-repeat="biblio in Bibliotecas">
 				<a class="item item-thumbnail-left item-text-wrap" style="" ng-href="#/app/Biblioteca" ng-click="TradeId({{biblio.id}})" >
-					<img src="img/{{biblio.img}}">
+					<img src="img/{{biblio.sigla}}.png">
 					<h2 id="Biblio_{{biblio.id}}" >{{biblio.nome}} - {{biblio.sigla}} </h2>
 				</a>
 			</div>

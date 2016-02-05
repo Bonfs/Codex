@@ -1,17 +1,18 @@
 <ion-view view-title="Home">
 	<ion-nav-bar class="bar-positive bar-azulUFC">
 		<ion-nav-buttons side="left">
-	    	<button menu-toggle="left" class="button button-icon icon mdi mdi-menu"></button>
+	    	<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
 	  	</ion-nav-buttons>
-	  	<ion-nav-buttons side="primary" >
+	  	<ion-nav-buttons side="primary">
 	  		<a href="#/app/busca/true">
       			<button  class="button button-icon icon mdi mdi-magnify button-size-busca" ng-click="doSomething()"></button>
       		</a>
     	</ion-nav-buttons>
     	<ion-nav-buttons side="right">
-      		<button  class="button button-icon icon mdi mdi-bell-outline button-size-busca" ></button>
+      		<button  class="button button-icon icon mdi mdi-bell-outline button-size-busca"></button>
     	</ion-nav-buttons>
   	</ion-nav-bar>
+	
 	<ion-content class="has-header">
 			<div style="width:100%;margin-top:2vh">
 				<div id="MenuTopo" style="padding:0;margin:0;background:#0066A5;height:6vh;">
@@ -22,12 +23,12 @@
 				
 				<a ng-href="#/app/Biblioteca">
 				<div style="width:100%;margin:0;height:35vh;">
-					<img id="imgBiblio" src="img/{{Biblioteca.img}}" style="height:100%;width:100%" />
+					<img id="imgBiblio" src="img/{{Biblioteca.sigla}}.png" style="height:100%;width:100%" />
 				</div>
 				</a>
 				
 				<div id="HoraBiblio" style="padding:0;text-align:center;margin:0;background:#0066A5;padding:0;color:#EEE;font-size:3vh;padding:1vh;height:6vh">
-				<p style="">
+				<p>
 				{{InfoHora}} - {{Hora}}
 				</p>
 				</div>
@@ -42,13 +43,13 @@
 					<i class="ion-chevron-right"></i>
 				</button>
 				
-				<div style="">
-					<p style="">Você Sabia ?</p>
+				<div>
+					<p>Você Sabia ?</p>
 				</div>
 			</div>	
-			
-			<div id="Curiosidade" data-tap-disabled="true" >
-				<p style="">{{Curiosidade}}</p>
+			<div id="Curiosidade" data-tap-disabled="false">
+				<p>{{Curiosidade}}</p>
 			</div>
 	</ion-content>
+	
 </ion-view>

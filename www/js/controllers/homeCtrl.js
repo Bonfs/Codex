@@ -25,83 +25,92 @@ function AlterCurio(Inc){
 		IdCurio=Curiosidades.length-1;
 	}
 }
-function AlterBiblio(Inc){
-	id+=Inc;
-	if(id>=Bibliotecas.length){
-		id=0;
-	}else if(id<0){
-		id=Bibliotecas.length-1;
-	}
-}
+
 
 angular.module('codex')
-.controller('homeCtrl',['$scope','$state' , function ($scope,$state){
+.controller('homeCtrl',['$scope','$state' ,'$timeout', function ($scope,$state,$timeout){
 	var HoraBiblio = document.getElementById('HoraBiblio').getElementsByTagName('p')[0];
 	var NomeBiblio = document.getElementById('NomeBiblio').getElementsByTagName('p')[0];
 	var Curiosidade= document.getElementById('Curiosidade').getElementsByTagName('p')[0];
 	var imgBiblio = document.getElementById('imgBiblio');
-	
+	function Atualiza(){
+
+	}
+	function AlterBiblio(Inc){
+		id+=Inc;
+		if(id>=Bibliotecas.length){
+			id=0;
+		}else if(id<0){
+			id=Bibliotecas.length-1;
+		}
+	}
+	function AlterClass(div,num,Class){
+		if(num){
+			HoraBiblio.classList.add(Class);
+			imgBiblio.classList.add(Class);
+			NomeBiblio.classList.add(Class);
+
+		}else if(num==0){
+			HoraBiblio.classList.remove(Class);
+			imgBiblio.classList.remove(Class);
+			NomeBiblio.classList.remove(Class);	
+		}
+			
+	}
 	function NextBiblio(){
 		if(!AnimandoBiblio){
 			AnimandoBiblio=1;
-			AlterBiblio(1);
-			
-
-			
-			HoraBiblio.classList.add("bounceLeft");
-			imgBiblio.classList.add("bounceLeft");
-			NomeBiblio.classList.add("bounceLeft");
-			
-			$scope.Biblioteca=Bibliotecas[id];
-			calcHora();
-			$scope.Hora = Hora;
-			$scope.InfoHora = InfoHora;
-			
-			 setTimeout(function(){
-				HoraBiblio.classList.remove("bounceLeft");
-				imgBiblio.classList.remove("bounceLeft");
-				NomeBiblio.classList.remove("bounceLeft");
-				AnimandoBiblio=0;
-			}, 1005);
-			
+			AlterClass(1,"bounceToLeft");
+			AlterBiblio(1);	
+			$timeout(function() {
+				$scope.Biblioteca=Bibliotecas[id];
+			},100);
+			setTimeout(function(){
+				AlterClass(0,"bounceToLeft");
+				AlterClass(1,"bounceFromRight");
+				setTimeout(function(){
+					AlterClass(0,"bounceFromRight");	
+					AnimandoBiblio=0;					
+				},500);
+			},500);
 		}
-
 	}
 	
 	function PreviewBiblio(){
 		if(!AnimandoBiblio){
 			AnimandoBiblio=1;
-			AlterBiblio(-1);
-			
-			HoraBiblio.classList.add("bounceRight");
-			imgBiblio.classList.add("bounceRight");
-			NomeBiblio.classList.add("bounceRight");
-			
-			$scope.Biblioteca=Bibliotecas[id];
-			calcHora();
-			$scope.Hora = Hora;
-			$scope.InfoHora = InfoHora;
-			
+			AlterClass(1,"bounceToRight");
+			AlterBiblio(-1);	
+			$timeout(function() {
+				$scope.Biblioteca=Bibliotecas[id];
+			},100);
 			setTimeout(function(){
-				HoraBiblio.classList.remove("bounceRight");
-				imgBiblio.classList.remove("bounceRight");
-				NomeBiblio.classList.remove("bounceRight");
-				AnimandoBiblio=0;
-			}, 1005);
+				AlterClass(0,"bounceToRight");
+				AlterClass(1,"bounceFromLeft");
+				setTimeout(function(){
+					AlterClass(0,"bounceFromLeft");	
+					AnimandoBiblio=0;					
+				},500);
+			},500);
 		}
 	}
 	
 	function NextCurio(){
 		if(!AnimandoCurio){
 			AnimandoCurio=1;
-			AlterCurio(1);
-			Curiosidade.classList.add("bounceLeft");
-			$scope.Curiosidade=Curiosidades[IdCurio];
-			 setTimeout(function(){
-				Curiosidade.classList.remove("bounceLeft");
-				AnimandoCurio=0;
-			}, 1005);
-			
+			Curiosidade.classList.add("bounceToLeft");
+			AlterCurio(1);	
+			$timeout(function() {
+				$scope.Curiosidade=Curiosidades[IdCurio];
+			},100);
+			setTimeout(function(){
+				Curiosidade.classList.remove("bounceToLeft");
+				Curiosidade.classList.add("bounceFromRight");
+				setTimeout(function(){
+					Curiosidade.classList.remove("bounceFromRight");	
+					AnimandoCurio=0;					
+				},500);
+			},500);
 		}
 
 	}
@@ -109,14 +118,19 @@ angular.module('codex')
 	function PreviewCurio(){
 		if(!AnimandoCurio){
 			AnimandoCurio=1;
-			AlterCurio(-1);
-			
-			Curiosidade.classList.add("bounceRight");
-			$scope.Curiosidade=Curiosidades[IdCurio];
+			Curiosidade.classList.add("bounceToRight");
+			AlterCurio(-1);	
+			$timeout(function() {
+				$scope.Curiosidade=Curiosidades[IdCurio];
+			},100);
 			setTimeout(function(){
-				Curiosidade.classList.remove("bounceRight");
-				AnimandoCurio=0;
-			}, 1005);
+				Curiosidade.classList.remove("bounceToRight");
+				Curiosidade.classList.add("bounceFromLeft");
+				setTimeout(function(){
+					Curiosidade.classList.remove("bounceFromLeft");	
+					AnimandoCurio=0;					
+				},500);
+			},500);
 		}
 	}
 	
