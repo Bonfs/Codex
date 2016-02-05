@@ -17,8 +17,17 @@ function ConvertHora(num){
 	return Hora;
 }
 function closePopUp(){
-	$('.pop-up').css('display','none');
-	$('#back').css('display','none');
+	if(document.getElementsByClassName('pop-up')[0].style.display != 'none'){
+		document.getElementsByClassName('pop-up')[0].style.display = 'none';
+	}
+	if(document.getElementsByClassName('pop-up')[1].style.display != 'none'){
+		document.getElementsByClassName('pop-up')[1].style.display = 'none';
+	}
+	document.getElementById('back').style.display = 'none';
+}
+function openPopUp(n){
+	document.getElementById('back').style.display = 'block';
+	document.getElementsByClassName('pop-up')[n].style.display = 'block';
 }
 function ConvertTelefone(Tel){
 	var DDD;
@@ -35,25 +44,13 @@ function ConvertTelefone(Tel){
 	return StrinTel;
 }
 angular.module('codex')
-.controller('biblio_Exibi_Ctrl', ['$scope','$ionicHistory',function ($scope,$ionicHistory) {
-		
-		$scope.myGoBack = function() {
-			$ionicHistory.goBack();
-		};
+.controller('biblio_Exibi_Ctrl', ['$scope','$ionicHistory',function ($scope,$ionicHistory) {		
 		var d = new Date;
 		var n = d.getDay();
+		var Tels = document.getElementById('Tels');
+		var Tel = document.getElementById('Tel');
+		
 		$scope.$on('$ionicView.enter', function(){
-			$('#Tels').css('display','block');
-			if(Bibliotecas[id].Telefone.length>1){
-				$('#Tels').css('display','block');
-				$('#Tel').css('display','none');
-			}else if(Bibliotecas[id].Telefone.length>0){
-				$('#Tel').css('display','block');
-				if(!(Bibliotecas[id].Telefone.descr=="")){
-					$('#Tel div#descr').css('display','none');
-				}
-				$('#Tels').css('display','none');
-			}
 			
 			$scope.Biblioteca = Bibliotecas[id];
 			$scope.ConvertTel = ConvertTelefone;
@@ -65,12 +62,10 @@ angular.module('codex')
 			d = new Date;
 			n = d.getDay();
 			var Hora="";
-			var InfoHora="";			
-			if(n==0){
-				Hora+=ConvertHora(Bibliotecas[id].Hora.Domingo_Abre)+" às "+ConvertHora(Bibliotecas[id].Hora.Domingo_Fecha);
-				InfoHora="Domingo";
-			}else if(n==7){
-				Hora+=ConvertHora(Bibliotecas[id].Hora.Sabado_Abre)+" às "+ConvertHora(Bibliotecas[id].Hora.Sabado_Fecha);
+			var InfoHora="";		
+			
+			if(n==7){
+				Hora+=ConvertHora(Bibliotecas[id].Hora.Sab[0])+" às "+ConvertHora(Bibliotecas[id].Hora.Sab[1]);
 				InfoHora="Sabado";
 			}else{
 				Hora+=ConvertHora(Bibliotecas[id].Hora.PerLet[0])+" às "+ConvertHora(Bibliotecas[id].Hora.PerLet[1]);
@@ -79,18 +74,25 @@ angular.module('codex')
 			$scope.Hora = Hora;
 			$scope.InfoHora = InfoHora;
 
+			
 			var NoOp = 0;
 			if(Bibliotecas[id].Hora.PerLet == undefined){
-				$('.PerLet').css('display','none');NoOp++;
+				document.getElementsByClassName('PerLet')[0].style.display = 'none';
+				document.getElementsByClassName('PerLet')[1].style.display = 'none';
+				NoOp++;
 			}
 			if(Bibliotecas[id].Hora.PerRecEsc == undefined){
-				$('.PerRecEsc').css('display','none');NoOp++;
+				document.getElementsByClassName('PerRecEsc')[0].style.display = 'none';
+				document.getElementsByClassName('PerRecEsc')[1].style.display = 'none';
+				NoOp++;
 			}
 			if(Bibliotecas[id].Hora.Sab == undefined){
-				$('.Sab').css('display','none');NoOp++;
+				document.getElementsByClassName('Sab')[0].style.display = 'none';
+				document.getElementsByClassName('Sab')[1].style.display = 'none';
+				NoOp++;
 			}
 			if(NoOp == 3){
-				$('#Hora').css('display','none');
+				document.getElementById('Hora').style.display = 'none';
 			}
 			
 		});

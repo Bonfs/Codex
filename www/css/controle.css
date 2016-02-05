@@ -5,12 +5,13 @@
 }
 .ion-android-arrow-back.ion-loading-c{
 	font-size: 7vw;
-	background-color:#004B82;
+	background-color:#D9D9D9;
 }
 .item-Biblio{
 	color:inherit;
 	text-decoration:none;
 }
+
 .item-Biblio:visited{
 	color:inherit;
 	text-decoration:none;
@@ -24,6 +25,26 @@
 	background-color:#FFF;
 	width:100%;
 }
+#content-Tels{
+max-height:25vh;
+overflow:hidden;
+}
+#content-Tels i{
+color:#004B82;
+	position:absolute;
+	margin:0.22in;
+}
+#content-Tels div a{
+width:100vw;
+margin:0;
+}
+#content-Tels div a div{
+	padding-left:0.66in;
+}
+#content-Tels {
+background-color:#FFF;
+}
+
 .pop-up{
 	z-index:1000;
 	display:none;
@@ -105,11 +126,11 @@ a div i {
 	margin-bottom:1.5rem;
 }
 .watch{
+	margin-top:0.04in;
 	height:24px;
 	width:24px;
 	background-image:url("../img/mdi_watch.svg");
 	background-repeat: no-repeat;
-	color:#004B82;
 }
 a.item-Biblio i.mdi{
 	color:#004B82;
@@ -125,6 +146,7 @@ div#Texto{
 	padding:0px;
 	width:90vw;
 }
+
 .button-Home{
 	padding:0;width:15%;height:6vh;border:none;
 }
@@ -137,7 +159,7 @@ div#Texto{
 #VoceSabia button.button-small.button-Home{
 	background-color:#FFF;color:#AAA;font-size:5vh;
 }
-#VoceSabia div{
+#VoceSabia div p{
 	padding:1vh;margin-top:1vh;text-align:center;font-size:4vh;color:#333;
 }
 #Curiosidade{
@@ -206,9 +228,17 @@ div#Texto{
 	 height:0.55in;*/
 	 box-shadow: 2px 2px 2px #888888;
 }
+
+.item-text-wrap h2{
+    line-height: 150% !important;
+}
 a.item.item-thumbnail-left{
 	margin:2vh;
-	box-shadow: 2px 2px 2px #888888;
+	border-radius:4px;
+	box-shadow: 1px 1px 1px #BBB;
+}
+a.item.item-thumbnail-left h2{
+ margin:0px;
 }
 .pac-container:after {
     /* Disclaimer: not needed to show 'powered by Google' if also a Google Map is shown */

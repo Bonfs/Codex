@@ -1,43 +1,4 @@
 <ion-view  view-title="{{Biblioteca.sigla}}">
-	<div id="back" onclick="closePopUp();" ></div>
-	
-	<div id="pop-up-Tels" class="pop-up" style="">
-		<div id="content">
-			<a id="close" onclick="closePopUp();"><i class="ion-android-cancel ion-loading-c"></i></a>
-			<div  ng-repeat="BiblioTel in Tel">
-				<a class="item-Biblio" href="tel:+55{{BiblioTel.num}}"><div ><i class='mdi mdi-phone'></i>{{ConvertTel(BiblioTel.num)}}<br />{{BiblioTel.descr}}</div></a>
-			</div>
-		</div>
-	</div>
-		
-	<div id="pop-up-Data" class="pop-up" style="">			
-		<div id="content">
-			<a id="close" onclick="closePopUp();"><i class="ion-android-cancel ion-loading-c"></i></a>
-			<div class="row header" >
-				<div class="col PerLet" >
-						<h4>Periodo Letivo</h4> 
-				</div>   
-				<div class="col Sab" >
-						<h4>Sábado</h4> 
-				</div>  
-				<div class="col PerRecEsc" >
-						<h4>Recesso Escolar</h4> 
-				</div>
-			</div>
-			<div class="row" >
-				<div class="col PerLet" >
-				<h5>{{ConvertHora(Biblioteca.Hora.PerLet[0])}} ás {{ConvertHora(Biblioteca.Hora.PerLet[1])}}</h5> 
-				</div>
-				<div  class="col Sab" >
-				<h5>{{ConvertHora(Biblioteca.Hora.Sab[0])}} ás {{ConvertHora(Biblioteca.Hora.Sab[1])}}</h5>	
-				</div>
-				<div class="col PerRecEsc" >
-				<h5>{{ConvertHora(Biblioteca.Hora.PerRecEsc[0])}} ás {{ConvertHora(Biblioteca.Hora.PerRecEsc[1])}}</h5> 
-				</div>
-			</div>
-		</div>
-	</div>
-	
 	<ion-nav-bar class="bar-positive bar-azulUFC">
 		<ion-nav-back-button class="ion-android-arrow-back ion-loading-c" side="left"></ion-nav-back-button>
 	</ion-nav-bar>
@@ -55,32 +16,25 @@
 				<div id="Texto">{{Biblioteca.endereco}}</div>
 			</div>
 		</a>
-		
-		<a class="item-Biblio" id="Tel" ng-href="tel:+55{{Bibliotecas.Telefone[0].num}}">
-			<div>
-				<i class='mdi mdi-phone'></i>
-				<div id="Texto">{{ConvertTel(Biblioteca.Telefone[0].num)}}<div id="descr">{{Bibliotecas.Telefone[0].descr}}</div></div>
+	
+		<div id="content-Tels">
+			<i class='mdi mdi-phone'></i>
+			<div  ng-repeat="BiblioTel in Tel">
+				<a class="item-Biblio" href="tel:+55{{BiblioTel.num}}"><div >{{ConvertTel(BiblioTel.num)}}<br />{{BiblioTel.descr}}</div></a>
 			</div>
-		</a>
-		
-		<a class="item-Biblio" id="Tels" onclick="$('#back').css('display','block');$('#pop-up-Tels').css('display','block')">
-			<div >
-				<i class='mdi mdi-phone'></i>
-				<div id="Texto">Telefones</div>
-			</div>
-		</a>
-		
-		<a class="item-Biblio" id="Hora" onclick="$('#back').css('display','block');$('#pop-up-Data').css('display','block')">
-			<div >
-				<i class='mdi watch'></i>
-				<div id="Texto">{{InfoHora}}<br/>{{Hora}}</div>
-			</div>
-		</a>
+		</div>
 		
 		<a class="item-Biblio" ng-href="mailto:{{Email}}">
 			<div >
 				<i class='mdi large mdi-email'></i>
 				<div id="Texto">{{Email}}</div>
+			</div>
+		</a>
+		
+		<a class="item-Biblio" id="Hora">
+			<div>
+				<i class='mdi watch'></i>
+				<div id="Texto">{{InfoHora}}<br/>{{Hora}}</div>
 			</div>
 		</a>
 		

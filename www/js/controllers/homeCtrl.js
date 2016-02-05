@@ -1,4 +1,3 @@
-var IdBiblio=0;
 var IdCurio=1;
 var Hora="";
 var InfoHora="";
@@ -11,10 +10,10 @@ function calcHora(){
 	 Hora=""
 	 InfoHora=""
 	if(n==7){
-		Hora+=ConvertHora(Bibliotecas[IdBiblio].Hora.Sab[0])+" às "+ConvertHora(Bibliotecas[IdBiblio].Hora.Sab[1]);
+		Hora+=ConvertHora(Bibliotecas[id].Hora.Sab[0])+" às "+ConvertHora(Bibliotecas[id].Hora.Sab[1]);
 		InfoHora="Sabado";
 	}else{
-		Hora+=ConvertHora(Bibliotecas[IdBiblio].Hora.PerLet[0])+" às "+ConvertHora(Bibliotecas[IdBiblio].Hora.PerLet[1]);
+		Hora+=ConvertHora(Bibliotecas[id].Hora.PerLet[0])+" às "+ConvertHora(Bibliotecas[id].Hora.PerLet[1]);
 		InfoHora="Segunda à Sexta";
 	}	
 }
@@ -27,35 +26,41 @@ function AlterCurio(Inc){
 	}
 }
 function AlterBiblio(Inc){
-	IdBiblio+=Inc;
-	if(IdBiblio>=Bibliotecas.length){
-		IdBiblio=0;
-	}else if(IdBiblio<0){
-		IdBiblio=Bibliotecas.length-1;
+	id+=Inc;
+	if(id>=Bibliotecas.length){
+		id=0;
+	}else if(id<0){
+		id=Bibliotecas.length-1;
 	}
-	
 }
 
 angular.module('codex')
 .controller('homeCtrl',['$scope','$state' , function ($scope,$state){
+	var HoraBiblio = document.getElementById('HoraBiblio').getElementsByTagName('p')[0];
+	var NomeBiblio = document.getElementById('NomeBiblio').getElementsByTagName('p')[0];
+	var Curiosidade= document.getElementById('Curiosidade').getElementsByTagName('p')[0];
+	var imgBiblio = document.getElementById('imgBiblio');
+	
 	function NextBiblio(){
 		if(!AnimandoBiblio){
 			AnimandoBiblio=1;
 			AlterBiblio(1);
 			
-			$( "#HoraBiblio p" ).addClass("bounceLeft");
-			$( "#imgBiblio" ).addClass("bounceRight");
-			$( "#NomeBiblio p" ).addClass("bounceLeft");
+
 			
-			$scope.Biblioteca=Bibliotecas[IdBiblio];
+			HoraBiblio.classList.add("bounceLeft");
+			imgBiblio.classList.add("bounceLeft");
+			NomeBiblio.classList.add("bounceLeft");
+			
+			$scope.Biblioteca=Bibliotecas[id];
 			calcHora();
 			$scope.Hora = Hora;
 			$scope.InfoHora = InfoHora;
 			
 			 setTimeout(function(){
-				$( "#HoraBiblio p" ).removeClass("bounceLeft");
-				$( "#imgBiblio" ).removeClass("bounceRight");
-				$( "#NomeBiblio p" ).removeClass("bounceLeft");
+				HoraBiblio.classList.remove("bounceLeft");
+				imgBiblio.classList.remove("bounceLeft");
+				NomeBiblio.classList.remove("bounceLeft");
 				AnimandoBiblio=0;
 			}, 1005);
 			
@@ -68,19 +73,19 @@ angular.module('codex')
 			AnimandoBiblio=1;
 			AlterBiblio(-1);
 			
-			$( "#HoraBiblio p" ).addClass("bounceRight");
-			$( "#imgBiblio" ).addClass("bounceLeft");
-			$( "#NomeBiblio p" ).addClass("bounceRight");
+			HoraBiblio.classList.add("bounceRight");
+			imgBiblio.classList.add("bounceRight");
+			NomeBiblio.classList.add("bounceRight");
 			
-			$scope.Biblioteca=Bibliotecas[IdBiblio];
+			$scope.Biblioteca=Bibliotecas[id];
 			calcHora();
 			$scope.Hora = Hora;
 			$scope.InfoHora = InfoHora;
 			
 			setTimeout(function(){
-				$( "#HoraBiblio p" ).removeClass("bounceRight");
-				$( "#imgBiblio" ).removeClass("bounceLeft");
-				$( "#NomeBiblio p" ).removeClass("bounceRight");
+				HoraBiblio.classList.remove("bounceRight");
+				imgBiblio.classList.remove("bounceRight");
+				NomeBiblio.classList.remove("bounceRight");
 				AnimandoBiblio=0;
 			}, 1005);
 		}
@@ -90,10 +95,10 @@ angular.module('codex')
 		if(!AnimandoCurio){
 			AnimandoCurio=1;
 			AlterCurio(1);
-			$( "#Curiosidade p" ).addClass("bounceLeft");
+			Curiosidade.classList.add("bounceLeft");
 			$scope.Curiosidade=Curiosidades[IdCurio];
 			 setTimeout(function(){
-				$( "#Curiosidade p" ).removeClass("bounceLeft");
+				Curiosidade.classList.remove("bounceLeft");
 				AnimandoCurio=0;
 			}, 1005);
 			
@@ -106,16 +111,16 @@ angular.module('codex')
 			AnimandoCurio=1;
 			AlterCurio(-1);
 			
-			$( "#Curiosidade p" ).addClass("bounceRight");
+			Curiosidade.classList.add("bounceRight");
 			$scope.Curiosidade=Curiosidades[IdCurio];
 			setTimeout(function(){
-				$( "#Curiosidade p" ).removeClass("bounceRight");
+				Curiosidade.classList.remove("bounceRight");
 				AnimandoCurio=0;
 			}, 1005);
 		}
 	}
 	
-	$scope.Biblioteca=Bibliotecas[IdBiblio];
+	$scope.Biblioteca=Bibliotecas[id];
 	
 	$scope.NextBiblio=NextBiblio;
 	$scope.PreviewBiblio=PreviewBiblio;

@@ -1,16 +1,26 @@
-var markers=[];
+﻿var markers=[];
 var openedInfo;
 var map;
 var directionsService = new google.maps.DirectionsService();
-var id = 0;	
+var id = 3;	
+var GeoBool;
 
 function closeMarkers(){
 	markers[openedInfo].info.close();
-	$(".pac-container").css('display','none');
-	$(".filter-bar-in").addClass("filter-bar-out");
-	$(".filter-bar-in").removeClass("filter-bar-in");
-	$("#route_from").val("");
-	setTimeout(function(){$(".filter-bar").css('height','0');},500)
+	//document.getElementsByClassName("example").classList.add('wait')
+	//document.getElementsByClassName("example").classList.remove("")
+	document.getElementsByClassName("filter-bar-in")[0].classList.add('filter-bar-out')
+	//$(".filter-bar-in").addClass("filter-bar-out");
+	document.getElementsByClassName("filter-bar-in")[0].classList.remove("filter-bar-in")
+	//$(".filter-bar-in").removeClass("filter-bar-in");
+	document.getElementsByClassName('pac-container')[0].style.display = 'none';
+	//$("pac-container").css('display','none');
+	document.getElementById("route_from").value = "";
+	//$("#route_from").val("");
+	setTimeout(function(){
+		document.getElementsByClassName('pac-container')[0].style.height = 0;
+		//$(".filter-bar").css('height','0');
+		},500)
 	openedInfo=undefined;
 }
 
@@ -28,20 +38,29 @@ function createMarker(i,latlng,nome,descr){
 			closeMarkers();
 		}
 		
-		if (!$(".filter-bar-wrapper").hasClass( "filter-bar-in" )){
+		/*if (!$(".filter-bar-wrapper").hasClass( "filter-bar-in" )){
 			$(".filter-bar-wrapper").addClass("filter-bar-in");
 		}else{			
 			$("div.filter-bar-out").addClass("filter-bar-in");
 			$("div.filter-bar-out").removeClass("filter-bar-out");
+		}*/
+		if (!document.getElementsByClassName("filter-bar-wrapper")[0].classList.contains("filter-bar-in")){
+			document.getElementsByClassName("filter-bar-wrapper")[0].classList.add('filter-bar-in');
+		}else{			
+			document.getElementsByClassName("filter-bar-out")[0].classList.add('filter-bar-in');
+			document.getElementsByClassName("filter-bar-out")[0].classList.remove('filter-bar-out');
 		}
-		$(".filter-bar").css('height',$('ion-header-bar').height());
+		
 		openedInfo=this.num;
 		id=this.num;
-		AtualizaBiblio();
 		markers[i].info.open(map,markers[openedInfo]);
+		document.getElementsByClassName('filter-bar')[0].style.height = document.getElementsByTagName('ion-header-bar').offsetHeight;
+		//$(".filter-bar").css('height',$('ion-header-bar').height());
+		
+		AtualBible();
+		
 		
 	});
-	
 	google.maps.event.addListener(markers[i].info,"closeclick", function(){
 		closeMarkers();
     })
@@ -52,7 +71,6 @@ function initializeMap() {
 	for (var i = 0; i < Bibliotecas.length; i++){
 		createMarker(i,new google.maps.LatLng(Bibliotecas[i].lat, Bibliotecas[i].lng),Bibliotecas[i].nome,Bibliotecas[i].nome);
 	}
-	
 	if(id>=0){
 		options = {
 			zoom:15,
@@ -74,8 +92,8 @@ function initializeMap() {
 		for (var i = 0; i < Bibliotecas.length; i++){
 			markers[i].setMap(map);
 		}
+		
 	}
-	
 }
 function TracaRota(origem,i){
 	if(origem==undefined){
@@ -110,8 +128,10 @@ function TracaRota(origem,i){
 function Geo(i){
 	markers[openedInfo].info.close();
 	var origem;
+	var GeoBool={};
 	
 		navigator.geolocation.getCurrentPosition(function (position) {
+		GeoBool=position;
 		var geocoder = new google.maps.Geocoder();
 		geocoder.geocode({
 			"location": new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
@@ -126,31 +146,27 @@ function Geo(i){
 }
 
 
-// ionic build android
 angular.module('codex')
 .controller('biblio_GPS_Ctrl', ['$scope','$ionicHistory', '$ionicPopup','$ionicFilterBar', function ($scope,$ionicHistory, $ionicPopup,$ionicFilterBar ) {
 	$scope.Biblioteca = Bibliotecas[id];
 	$scope.closeMarkers=closeMarkers;
 	$scope.Bibliotecas = Bibliotecas;
-	
-	AtualizaBiblio = function(){
+	AtualBible = function(){
 		$scope.Biblioteca = Bibliotecas[id];
-		$('#route_from').attr('placeholder',"Endereço de Origem para "+Bibliotecas[id].sigla )
+		document.getElementById('route_from').placeholder="Endereço de Origem para "+Bibliotecas[id].sigla;
 	}
-	
 	ErrorGPS = function(){
-		var alertPopup = $ionicPopup.alert({
-				title: 'Gps Fraco ou Desativado',
-				 template: 'Error ao identificar Geolocalização,sinal do serviço de geolocalização pode estar fraco ou desligado,favor veficar se o  está ligado'
-		});
+	var alertPopup = $ionicPopup.alert({
+			title: 'Gps Fraco ou Desativado',
+			 template: 'Error ao identificar Geolocalização,sinal do serviço de geolocalização pode estar fraco ou desligado,favor veficar se o  está ligado'
+	});
 	}
 	ErrorConecNet = function(){
-		var alertPopup = $ionicPopup.alert({
-				title: 'Internet Desativada',
-				 template: 'Error ao conectar com internet,favor veficar se a internet está ligada'
-		});
+	var alertPopup = $ionicPopup.alert({
+			title: 'Internet Desativada',
+			 template: 'Error ao conectar com internet,favor veficar se a internet está ligada'
+	});
 	}
-	
 	$scope.$on('$ionicView.enter', function(){
 		/*if(navigator.connection.type == Connection.NONE){
 			ErrorConecNet();
@@ -160,10 +176,13 @@ angular.module('codex')
 		//}
 	});
 	
-	var input = $('#route_from')[0];
-	var autocomplete = new google.maps.places.Autocomplete(input,{componentRestrictions:{'country': 'br'}});
+	var input = document.getElementById('route_from');
+	var options = {
+	  componentRestrictions: {city: 'Fortaleza'}
+	};
+	var autocomplete = new google.maps.places.Autocomplete(input);
 	autocomplete.addListener('place_changed', function(){
-		//alert(place.address_components[0].long_name);
+		/*alert(place.address_components[0].long_name);*/
 		TracaRota();
 	});
 	
