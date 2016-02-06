@@ -28,7 +28,16 @@ function AlterCurio(Inc){
 
 
 angular.module('codex')
-.controller('homeCtrl',['$scope','$state' ,'$timeout', function ($scope,$state,$timeout){
+.controller('homeCtrl',['$scope','$state' ,'$timeout', '$ionicNavBarDelegate', function ($scope,$state,$timeout, $ionicNavBarDelegate){
+	$scope.$on('$ionicView.enter', function()
+	{
+		//console.log('teste centro');
+	    $timeout(function()
+	    {
+	        $ionicNavBarDelegate.align('center');
+	    });
+	});
+
 	var HoraBiblio = document.getElementById('HoraBiblio').getElementsByTagName('p')[0];
 	var NomeBiblio = document.getElementById('NomeBiblio').getElementsByTagName('p')[0];
 	var Curiosidade= document.getElementById('Curiosidade').getElementsByTagName('p')[0];

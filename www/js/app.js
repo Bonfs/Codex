@@ -167,5 +167,14 @@ angular.module('codex', ['ionic', 'ngStorage', 'ngCordova', 'jett.ionic.filter.b
     }
   })
 
+  .state('app.sobre', {
+    url: '/sobre',
+    views: {
+      'menuContent': {
+        templateUrl: 'view/sobre.html'
+      }
+    }
+  })
+
   $urlRouterProvider.otherwise('/app/home');
 });

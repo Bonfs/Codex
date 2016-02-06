@@ -5,11 +5,13 @@
 		</ion-nav-buttons>
 	</ion-nav-bar>
     <ion-content>
-    	<div class="row responsive-sm bloco">
-    		<p><strong>Título: </strong> {{livro.nome_livro}} </p>
-            <p><strong>Número de chamada:</strong> {{livro.codigo}} ({{livro.local}})</p>
-    		<p><strong>Total de exemplares: </strong> {{livro.numLivros}} </p>
-    		<p><strong>Disponível no acervo: </strong> {{livro.disponivel}} </p>
+    	<div class="list color-text no-border">
+            <div class="item">
+        		<h2><strong>Título: </strong> {{livro.nome_livro}} </h2>
+                <p class="infoLivro"><strong>Número de chamada:</strong> {{livro.codigo}} ({{livro.local}})</p>
+        		<p class="infoLivro"><strong>Total de exemplares: </strong> {{livro.numLivros}} </p>
+        		<p class="infoLivro"><strong>Disponível no acervo: </strong> {{livro.disponivel}} </p>
+            </div>
     	</div>
         
     </ion-content>

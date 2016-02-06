@@ -126,4 +126,34 @@ button.centralizar{
 	border-color: #004B82;
 	background-image: linear-gradient(0deg, #004B82, #004B82 50%, transparent 50%);
     }
+
+.list div.item{
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 0px !important;
+}
+
+.list .item h2{
+  white-space: normal;
+  line-height: 25px;
+  margin-bottom: 20px;
+}
+.list .item .infoLivro{
+  white-space: normal;
+  line-height: 25px;
+  margin-bottom: 20px;
+}
+
+.logoHeader img{
+  width: 65%;
+}
+
+.ufcLogo{
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.ufcLogo img{
+  padding: 3px;
 }

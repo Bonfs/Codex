@@ -1,15 +1,21 @@
-<ion-view view-title="Home">
+<ion-view >
+	<ion-nav-title >
+		<div class="logoHeader">
+			<img src="img/codexLogo.png">
+		</div>
+	</ion-nav-title>
 	<ion-nav-bar class="bar-positive bar-azulUFC">
 		<ion-nav-buttons side="left">
-	    	<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+	    	<button menu-toggle="left" class="button button-icon icon mdi mdi-menu"></button>
 	  	</ion-nav-buttons>
 	  	<ion-nav-buttons side="primary">
-	  		<a href="#/app/busca/true">
-      			<button  class="button button-icon icon mdi mdi-magnify button-size-busca" ng-click="doSomething()"></button>
-      		</a>
+	  		
     	</ion-nav-buttons>
     	<ion-nav-buttons side="right">
-      		<button  class="button button-icon icon mdi mdi-bell-outline button-size-busca"></button>
+    		<button  class="button button-icon icon mdi mdi-bell-outline button-size-busca"></button>
+    		<a href="#/app/busca/true">
+      			<button  class="button button-icon icon mdi mdi-magnify button-size-busca" ng-click="doSomething()"></button>
+      		</a>
     	</ion-nav-buttons>
   	</ion-nav-bar>
 	

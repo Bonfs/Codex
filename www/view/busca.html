@@ -2,7 +2,7 @@
 	<ion-view view-title="Pesquisa">
 		<ion-nav-bar class="bar-positive bar-azulUFC">
 			<ion-nav-buttons side="left">
-		    	<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+		    	<button menu-toggle="left" class="button button-icon icon mdi mdi-menu"></button>
 		  	</ion-nav-buttons>
 		  	<ion-nav-buttons side="right">
 		  	      <button class="button button-icon icon mdi mdi-magnify button-size-busca" ng-click="showFilterBar()" ng-model="busca"> </button>
@@ -15,11 +15,14 @@
 	        	<img src="img/livrobusca.png">
 	        </div>
 	        <ion-list ng-show="busca.length >= 3">
-	        	<ion-item ng-repeat="livro in livros | filter: busca" href="#/livroInfo/{{livro.id}}">
-	        		<p><strong>{{livro.nome_livro}}</strong></p>
-	        		<p>{{livro.autor}}</p>
-	        		<p>N. de chamada: {{livro.codigo}} ({{livro.local}})</p>
-	        		<p>Tipo de obra: {{livro.obra}}</p>
+	        	<ion-item ng-repeat="livro in livros | filter: busca" href="#/livroInfo/{{livro.id}}" >
+	        		<div class="color-text">
+		        		<p><strong>{{livro.nome_livro}}</strong></p>
+		        		<p>{{livro.autor}}</p>
+		        		<p>N. de chamada: {{livro.codigo}} ({{livro.local}})</p>
+		        		<i class="mdi mdi-information" style="float: right; color: #999;"></i>
+		        		<p>Tipo de obra: {{livro.obra}}</p>
+		        	</div>	
 	        	</ion-item>
 	        </ion-list>
 	        <div ng-show="livros.length == 0 && busca.length >= 3">
