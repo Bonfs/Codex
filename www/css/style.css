@@ -155,12 +155,12 @@ button.centralizar{
 }
 
 .ufcLogo{
-  margin-left: 5px;
-  margin-top: 5px;
+  width: 100%;
 }
 
 .ufcLogo img{
-  padding: 3px;
+  width: auto;
+ 
 }
 
 .text-margin{
@@ -199,8 +199,12 @@ button.centralizar{
   margin-right: -2px;
 }
 
+#alugados{
+  font-size: 18px !important;
+}
+
 .capaInfo{
-  width: 85%; 
+  width: 62%; 
   margin-bottom: 5vh;
   display: block;
   margin-right: auto;

@@ -171,7 +171,8 @@ angular.module('codex', ['ionic', 'ngStorage', 'ngCordova', 'jett.ionic.filter.b
     url: '/sobre',
     views: {
       'menuContent': {
-        templateUrl: 'view/sobre.html'
+        templateUrl: 'view/sobre.html',
+        controller: 'sobreCtrl'
       }
     }
   })

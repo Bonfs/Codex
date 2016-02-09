@@ -10,8 +10,11 @@
 
   <!-- Left menu -->
   <ion-side-menu side="left" >
-    <header class="bar bar-header bar-stable ufcLogo">
-      <img class="title" src="img/brasao1_horizontal_cor_72dpi.png">
+    <header class="bar bar-header bar-stable">
+     <!--<img class="title" src="img/brasao1_horizontal_cor.svg"-->
+      <div class="ufcLogo">
+        <img class="title" style="margin-top: 2px; margin-left: 14px;" src="img/brasao1_horizontal_cor_72dpi.png" />
+      </div>
     </header>
     <ion-content class="has-header">
       <ion-list>
@@ -26,10 +29,10 @@
         </ion-item>
         </ion-item>
         <ion-item menu-close href="#/app/livrosAlugados">
-          <i class="mdi mdi-book"></i><span class="text-vertical-aligned-menu">Livros Alugados</span>
+          <i class="mdi glyphter" id="alugados">B</i><span class="text-vertical-aligned-menu">Livros Alugados</span>
         </ion-item>
         <ion-item menu-close href="#/app/codificacao">
-          <i class="mdi glyphter">F</i><span class="text-vertical-aligned-menu">Guia de Codificação</span>
+          <i class="mdi glyphter">A</i><span class="text-vertical-aligned-menu">Guia de Codificação</span>
         </ion-item>
         <ion-item menu-close href="#/app/sobre">
           <i class="mdi mdi-information"></i><span class="text-vertical-aligned-menu">Sobre</span>

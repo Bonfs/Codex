@@ -18,4 +18,5 @@
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale
 }
-.icon-guiadecodificaologo:before{content:'\0046';}
+.icon-guiadecodificaologo:before{content:'\0041';}
+.icon-livrosalugadosicon:before{content:'\0042';}
