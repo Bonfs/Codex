@@ -17,7 +17,7 @@
 	        <ion-list ng-show="busca.length >= 3">
 	        	<ion-item ng-repeat="livro in livros | filter: busca" href="#/livroInfo/{{livro.id}}" >
 	        		<div class="color-text">
-		        		<p><strong>{{livro.nome_livro}}</strong></p>
+		        		<p style="white-space: normal;"><strong>{{livro.nome_livro}}</strong></p>
 		        		<p>{{livro.autor}}</p>
 		        		<p>N. de chamada: {{livro.codigo}} ({{livro.local}})</p>
 		        		<i class="mdi mdi-information" style="float: right; color: #999;"></i>
@@ -26,9 +26,8 @@
 	        	</ion-item>
 	        </ion-list>
 	        <div ng-show="livros.length == 0 && busca.length >= 3">
-	        	<p>Nenhum resultado encontrado</p>
+	        	<p class="text-margin color-text">Nenhum resultado encontrado</p>
 	        </div>
-	        
 		</ion-content>
 	</ion-view>
 </body>

@@ -70,10 +70,12 @@ button.button-size-busca:before{
     right: 32px;
     position: fixed;
     z-index: 9999;
+
   }
 
 .float-button .mdl-button--colored{
   background-color: #004B82 !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 button.centralizar{
@@ -125,6 +127,9 @@ button.centralizar{
 	background-color: #004B82;
 	border-color: #004B82;
 	background-image: linear-gradient(0deg, #004B82, #004B82 50%, transparent 50%);
+  top: 0;
+  border-top-width: 0;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     }
 
 .list div.item{
@@ -156,4 +161,48 @@ button.centralizar{
 
 .ufcLogo img{
   padding: 3px;
+}
+
+.text-margin{
+  margin-left: 5vw;
+  margin-top: 3vw;
+  width: 90vw;
+  text-align: justify;
+}
+
+.text-margin p {
+  font-weight: 400;
+}
+
+#cc{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#licenca{
+  text-align: center;
+}
+
+.codificacaoIcon{
+  width: 39px;
+  height: 39px;
+  margin-left: -8px;
+  margin-right: -10px;
+}
+
+.glyphter{
+  font-family: glyphter !important;
+  font-size: 24px;
+  vertical-align: -20%;
+  margin-left: 2px;
+  margin-right: -2px;
+}
+
+.capaInfo{
+  width: 85%; 
+  margin-bottom: 5vh;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
