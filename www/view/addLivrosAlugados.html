@@ -1,27 +1,41 @@
 <ion-view view-title="Adicionar Livros">
-	<ion-nav-bar class="bar-positive bar-azulUFC">
-		<ion-nav-back-button class="button-clear">
+	<ion-nav-bar class="bar-positive bar-azulUFC bar-azulUfc-shadow">
+		<ion-nav-buttons>
     		<button class="button button-icon icon mdi mdi-arrow-left" ng-click="goBack()"></button>
-  		</ion-nav-back-button>
+  		</ion-nav-buttons>
 	</ion-nav-bar>
 	<ion-content class="has-header" scroll="false">
 		<form name="addLivroForm" ng-submit="addLivro(livro)">
 			<div class="list ">
 			  <label class="item item-input">
-			    <span class="input-label">Livro</span>
+			    <span class="input-label" style="margin-left: 10px !important;">Livro:</span>
 			    <input type="text" ng-model="livro.nome_livro" ng-required="true"/>
 			  </label>
+			  <!--
 			  <label class="item item-input">
-			    <span class="input-label">Biblioteca</span>
-			    <input type="text" ng-model="livro.biblioteca_livro" ng-required="true"/>
+			    <span class="input-label">Biblioteca:</span>
+			    <select type="text" ng-model="livro.biblioteca_livro" ng-options="bibliotecas.sigla as label for sigla in bibliotecas" ng-required="true">
+			    </select>
+			    <option value="">Selecione uma biblioteca</option>
 			  </label>
+			  <i id="incoInfo" class="mdi mdi-calendar"></i>
+				-->
+			  <label class="item item-input item-select">
+			    <span class="input-label" style="margin-left: 10px !important;">
+			      Biblioteca:
+			    </span>
+			    <select ng-model="livro.biblioteca_livro" ng-options="biblioteca.sigla for biblioteca in bibliotecas">
+			    </select>			     
+			  </label>
+
 			  <label class="item item-input">
-			    <span class="input-label">Data de entrega</span>
+			    <span class="input-label" style="margin-left: 10px !important;">Data de entrega:</span>
 			    <input type="date" ng-model="livro.data_devolucao" min="{{dataAtual | date: 'yyyy-MM-dd'}}" ng-required="true"/>
 			  </label>
 			</div>
+
 			<button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent centralizar">
-  				Salvar!
+  				Salvar
 			</button>
 		</form>
 	</ion-content>

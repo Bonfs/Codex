@@ -1,8 +1,6 @@
 /* Empty. Add your own CSS if you like */
-.sideMenu a{
-	text-decoration: none;
-	color: black;
-	margin-left: 5%; 
+.sideMenu i{
+	margin-left: 1vw; 
 }
 
 body {
@@ -37,9 +35,13 @@ button.button-size-busca:before{
   font-size: 23px !important;
 }
 
+#busca-icon{
+  margin-top: 1px ;
+}
+
 .text-vertical-aligned-menu{
 	vertical-align: 10%;
-	margin-left: 20px;
+	margin-left: 17px;
 	color: #222 !important;
 }
 
@@ -82,6 +84,9 @@ button.centralizar{
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 10vh;
+  width: 40%;
+  height: 50px; !important;
 }
 .mdl-button--accent{
   background-color: #004B82 !important;
@@ -129,8 +134,12 @@ button.centralizar{
 	background-image: linear-gradient(0deg, #004B82, #004B82 50%, transparent 50%);
   top: 0;
   border-top-width: 0;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  
     }
+
+.bar-azulUfc-shadow{
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
 
 .list div.item{
   border-top: 0px;
@@ -195,7 +204,7 @@ button.centralizar{
   font-family: glyphter !important;
   font-size: 24px;
   vertical-align: -20%;
-  margin-left: 2px;
+  margin-left: 7px !important;
   margin-right: -2px;
 }
 
@@ -204,9 +213,20 @@ button.centralizar{
 }
 
 .capaInfo{
-  width: 62%; 
+  width: 60vw; 
   margin-bottom: 5vh;
   display: block;
   margin-right: auto;
   margin-left: auto;
+}
+
+.infoLivro-item{
+  margin-left: 1vw;
+}
+
+#incoInfo{
+  position: fixed;
+  z-index: 10;
+  margin-left: 55vw;
+  margin-top: 1vh;
 }

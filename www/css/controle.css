@@ -79,7 +79,7 @@ div#Texto{
 	padding:0;width:15%;height:7vh;border:none;
 }
 #MenuTopo button.button-small.button-Home{
-	font-size:3vh;background-color:#004B82;color:#EEE;
+	font-size:3vh;background-color:#0066A5;color:#EEE;
 }
 #VoceSabia{
 	width:100%;margin-top:2vh
@@ -88,11 +88,12 @@ div#Texto{
 	background-color:#FFF;color:#AAA;font-size:5vh;
 }
 #VoceSabia div p{
-	padding:1vh;margin-top:1vh;text-align:center;font-size:4vh;color:#333;
+	padding:1vh;margin-top:1vh;text-align:center;font-size:4vh;color:#222;
+	margin-left: 1vw;
 }
 #Curiosidade{
 	margin-top:2vh ;
-	margin-left:5vw;
+	margin-left:6vw;
 	width:90vw;
 	height:35vh;
 	font-size:3vh; 

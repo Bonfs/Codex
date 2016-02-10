@@ -8,7 +8,8 @@ angular.module('codex').controller('livrosAlugadosCtrl', ['$scope', '$cordovaLoc
 	//storageService.limpaRegistro();
 	//console.log($scope.livros);
 	//console.log($state.current.name);
-
+	$scope.bibliotecas = Bibliotecas;
+	//console.log($scope.bibliotecas[0].sigla);
 	//impede que o menu abra arrastando
 	if($state.current.name == 'app.addLivro')
 	{
@@ -29,7 +30,7 @@ angular.module('codex').controller('livrosAlugadosCtrl', ['$scope', '$cordovaLoc
 		console.log(dataDev);
 		storageService.addLivro({
 					nome_livro: livro.nome_livro,
-					biblioteca_livro: livro.biblioteca_livro,
+					biblioteca_livro: livro.biblioteca_livro.sigla,
 					data_devolucao: dataDev
 				});
 		delete $scope.livro;

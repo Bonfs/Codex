@@ -1,5 +1,5 @@
 <ion-view view-title="Detalhes da Obra" ng-controller="buscaCtrl">
-	<ion-nav-bar class="bar-positive bar-azulUFC">
+	<ion-nav-bar class="bar-positive bar-azulUFC bar-azulUfc-shadow">
 		<ion-nav-buttons side="left">
 		      <button class="button button-icon icon mdi mdi-arrow-left" ng-click="goBack()"></button>
 		</ion-nav-buttons>
@@ -8,10 +8,12 @@
     	<div class="list color-text no-border">
             <div class="item">
                 <img ng-src="{{livro.capa}}" class="capaInfo">
-        		<h2><strong>Título: </strong> {{livro.nome_livro}} </h2>
-                <p class="infoLivro"><strong>Número de chamada:</strong> {{livro.codigo}} ({{livro.local}})</p>
-        		<p class="infoLivro"><strong>Total de exemplares: </strong> {{livro.numLivros}} </p>
-        		<p class="infoLivro"><strong>Disponível no acervo: </strong> {{livro.disponivel}} </p>
+                <div class="infoLivro-item">
+            		<h2><strong>Título: </strong> {{livro.nome_livro}} </h2>
+                    <p class="infoLivro"><strong>Número de chamada:</strong> {{livro.codigo}} ({{livro.local}})</p>
+            		<p class="infoLivro"><strong>Total de exemplares: </strong> {{livro.numLivros}} </p>
+            		<p class="infoLivro"><strong>Disponível no acervo: </strong> {{livro.disponivel}} </p>
+                </div>
             </div>
     	</div>
         
