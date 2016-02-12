@@ -144,14 +144,14 @@ angular.module('codex')
 	}
 	ErrorGPS = function(){
 	var alertPopup = $ionicPopup.alert({
-			title: 'Gps Fraco ou Desativado',
-			 template: 'Error ao identificar Geolocalização,sinal do serviço de geolocalização pode estar fraco ou desligado,favor veficar se o  está ligado'
+			title: 'Gps desativado',
+			 template: 'Erro ao identificar sua localização, por favor verifique se o GPS está ativado.'
 	});
 	}
 	ErrorConecNet = function(){
 	var alertPopup = $ionicPopup.alert({
-			title: 'Internet Desativada',
-			 template: 'Error ao conectar com internet,favor veficar se a internet está ligada'
+			title: 'Sem acesso a internet',
+			 template: 'Erro ao conectar-se com a internet, por favor verifique sua conexão.'
 	});
 	}
 	$scope.$on('$ionicView.enter', function(){

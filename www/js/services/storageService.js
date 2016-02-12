@@ -11,11 +11,6 @@ angular.module('codex')
 	}
 
 	var _addLivro = function (livro) {
-		//id, title, text, at, icon
-		/**livro.id = $localStorage.id +1;
-		livro.title = livro.nome_livro;
-		livro.text = 'Não esqueça de devolver o seu livro';
-		livro.at = **/
 		$cordovaLocalNotification.schedule({
             id: $localStorage.id + 1,
             title: livro.nome_livro,

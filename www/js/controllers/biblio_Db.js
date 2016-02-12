@@ -100,7 +100,8 @@ var Bibliotecas = [
 	  img:"Biblio_1.jpg",
 	  Hora:{PerLet:[7,18]},
 	  email:"biblabomar@gmail.com"
-   },{	
+   },/*
+   {	
 	  id:10,
       lat: -3.740446,lng: -38.538584,
 	  sigla:"BPGEC",
@@ -111,7 +112,8 @@ var Bibliotecas = [
 	  Hora:{PerLet:[8,20.0]},
 	  email:"bmecon@ufc.br",
 	  site:"www.caen.ufc.br"
-   },{	
+   },
+   {	
 	  id:11,
       lat: -3.740455,lng: -38.576247,
 	  sigla:"BPGEA",
@@ -121,7 +123,8 @@ var Bibliotecas = [
 	  img:"Biblio_1.jpg",
 	  Hora:{PerLet:[8,17],PerRecEsc:[8,16]},
 	  email:"beagri@ufc.br"
-   },{	
+   },*/
+   {	
 	  id:12,
       lat: -3.743649,lng: -38.575492,
 	  sigla:"BPGE",

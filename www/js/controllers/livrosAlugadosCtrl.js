@@ -1,5 +1,5 @@
-angular.module('codex').controller('livrosAlugadosCtrl', ['$scope', '$cordovaLocalNotification', '$state', '$ionicSideMenuDelegate', 'storageService', '$ionicPlatform', '$ionicHistory', '$timeout',
-	function ($scope, $cordovaLocalNotification, $state, $ionicSideMenuDelegate, storageService, $ionicPlatform, $ionicHistory, $timeout){
+angular.module('codex').controller('livrosAlugadosCtrl', ['$scope', '$cordovaLocalNotification', '$state', '$ionicSideMenuDelegate', 'storageService', '$ionicPlatform', '$ionicHistory', '$timeout', '$ionicPopup',
+	function ($scope, $cordovaLocalNotification, $state, $ionicSideMenuDelegate, storageService, $ionicPlatform, $ionicHistory, $timeout, $ionicPopup){
 	$scope.livros = storageService.getLivros();	//nome do livro | código | data de devolução
 	$scope.dataAtual = new Date();
 	$scope.livro = {};
@@ -34,6 +34,13 @@ angular.module('codex').controller('livrosAlugadosCtrl', ['$scope', '$cordovaLoc
 					data_devolucao: dataDev
 				});
 		delete $scope.livro;
+		var alertSalvarLivro = $ionicPopup.alert({
+			title: 'Livro adicionado com sucesso!',
+			template: ''
+		})
+		alertSalvarLivro.then(function (res){
+			console.log('Deu certo!')
+		});
 	}
 
 	$scope.removeLivro = removeLivro;

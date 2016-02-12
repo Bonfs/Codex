@@ -230,3 +230,11 @@ button.centralizar{
   margin-left: 55vw;
   margin-top: 1vh;
 }
+
+
+#iconPesquisa{
+  position: absolute;
+  color: #999; 
+  margin-top: -1px;
+  margin-left: 85vw;
+}
