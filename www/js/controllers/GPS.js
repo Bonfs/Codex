@@ -3,7 +3,6 @@ var openedInfo;
 var map;
 var directionsService = new google.maps.DirectionsService();
 var id = 3;	
-var GeoBool;
 
 function closeMarkers(){
 	markers[openedInfo].info.close();

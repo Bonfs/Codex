@@ -1,12 +1,8 @@
-
 angular.module('codex')
-.controller('biblioCtrl', ['$scope','$rootScope', '$cordovaNetwork', function ($scope,$rootScope, $cordovaNetwork) {
-	$scope.Bibliotecas = Bibliotecas;
-	function TradeId(num){
-		id=num;
-	}
-	$scope.TradeId = TradeId;	
-
+.controller('biblioCtrl', ['$scope', function ($scope) {
+	$scope.Bibliotecas = Bibliotecas
+	$scope.sigla = Sigla
+	$scope.TradeId = function (num){id=num}
 }]);
 
 
