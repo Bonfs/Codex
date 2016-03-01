@@ -1,30 +1,10 @@
-/* Empty. Add your own CSS if you like */
 .sideMenu i{
-	margin-left: 1vw; 
+	margin-left: 1vw;
 }
 
 body {
     cursor: url('http://ionicframework.com/img/finger.png'), auto;
 }
-/**
-.header .col {
-    background-color:lightgrey;
-}
-
-.col {
-    border: solid 1px grey;
-    border-bottom-style: none;
-    border-right-style: none;
-}
-
-.col:last-child {
-    border-right: solid 1px grey;
-}
-
-.row:last-child .col {
-    border-bottom: solid 1px grey;
-}
-*/
 
 .color-icon{
 	fill: #999999;
@@ -97,7 +77,6 @@ button.centralizar{
 	display: block !important;
 }
 
-
 .bloco{
 	padding: 10px;
 	}
@@ -123,7 +102,7 @@ button.centralizar{
     white-space: nowrap;
     font-size: 17px;
     font-weight: 500;
-    line-height: 44px; 
+    line-height: 44px;
 }
 
 
@@ -134,7 +113,7 @@ button.centralizar{
 	background-image: linear-gradient(0deg, #004B82, #004B82 50%, transparent 50%);
   top: 0;
   border-top-width: 0;
-  
+
     }
 
 .bar-azulUfc-shadow{
@@ -169,7 +148,7 @@ button.centralizar{
 
 .ufcLogo img{
   width: auto;
- 
+
 }
 
 .text-margin{
@@ -213,7 +192,7 @@ button.centralizar{
 }
 
 .capaInfo{
-  width: 60vw; 
+  width: 60vw;
   margin-bottom: 5vh;
   display: block;
   margin-right: auto;
@@ -234,7 +213,7 @@ button.centralizar{
 
 #iconPesquisa{
   position: absolute;
-  color: #999; 
+  color: #999;
   margin-top: -1px;
   margin-left: 85vw;
 }

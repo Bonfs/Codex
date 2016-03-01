@@ -1,28 +1,37 @@
-angular.module('codex').controller('buscaCtrl', ['$scope', '$ionicHistory', '$ionicFilterBar', '$timeout', '$stateParams', '$state', 'acervoDB',
-	function ($scope, $ionicHistory, $ionicFilterBar, $timeout, $stateParams, $state , acervoDB){
+angular.module('codex').controller('buscaCtrl', ['$scope', '$ionicHistory', '$ionicFilterBar', '$timeout', '$stateParams', '$state', 'acervoDB', 'filterFilter',
+	function ($scope, $ionicHistory, $ionicFilterBar, $timeout, $stateParams, $state , acervoDB, filterFilter){
 	var filterBarInstance;
 	$scope.titulo = 'Livros';
 	$scope.livros = acervoDB.getAcervo();//Título, Autor, código+localização, Tipo de obra
-	$scope.busca = '';
-	//console.log($stateParams.barPesquisaAtivada);
+	$scope.busca;
 
+	// if($scope.busca != undefined && $scope.busca.length >= 3 && $scope.livros.length == 0)
+	// 	$scope.erroBusca = true;
+	// else
+	// 	$scope.erroBusca = false;
 	$scope.showFilterBar = function () {
 	    filterBarInstance = $ionicFilterBar.show({
 	        items: $scope.livros,
 	        update: function (filteredItems, filterText) {
 	          $scope.livros = filteredItems;
+						// console.log(filteredItems);
 	          if (filterText) {
 	            //console.log(filterText);
 	            //console.log('Busca: '+ $scope.busca);
 	            $scope.busca = filterText
 	          }
+						// console.log(filterFilter(filteredItems, $scope.busca).length);
+						if($scope.busca != undefined && $scope.busca.length >= 3 && filterFilter(filteredItems, $scope.busca).length == 0)
+							$scope.erroBusca = true;
+						else
+							$scope.erroBusca = false;
 	        },
 	        cancel: function(){
-	        	//console.log('cancel');
+	        	//console.log('cancel')
 	        	$stateParams.barPesquisaAtivada = false;
 	        }
 	      });
-	    };	
+	    };
 
     $scope.refreshItems = function () {
       if (filterBarInstance) {
@@ -39,7 +48,6 @@ angular.module('codex').controller('buscaCtrl', ['$scope', '$ionicHistory', '$io
     $scope.goBack = function () {
     	$ionicHistory.goBack();
     	delete $scope.livro;
-    	//console.log('teste');
     }
 
     $scope.$on('$ionicView.beforeLeave', function () {
@@ -69,7 +77,7 @@ angular.module('codex').controller('buscaCtrl', ['$scope', '$ionicHistory', '$io
 
 	//Determina a informação do livro escolhido na view 'buscaLivroInfo.html'
 	if(!isEmpty($stateParams))
-		$scope.livro = $scope.livros[$stateParams.livro - 1];
+		$scope.livroInfo = $scope.livros[$stateParams.livro - 1];
 	//Ativa a barra de pesquisa quando clica a 'lupa' na home
 	if($stateParams.barPesquisaAtivada == 'true')
 		$scope.showFilterBar();

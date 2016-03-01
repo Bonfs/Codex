@@ -9,25 +9,26 @@
 		  	</ion-nav-buttons>
 	  	</ion-nav-bar>
 		<ion-content class="has-header">
+			<!--
 			<ion-refresher pulling-icon="ion-arrow-down-b" on-refresh="refreshItems()">
-    		</ion-refresher>
-    		<div ng-show="busca.length < 3 || busca.length == 0" class="empty-screen">
+    	</ion-refresher>
+			-->
+    		<div ng-show="busca == undefined || busca.length < 3" class="empty-screen">
 	        	<img src="img/livrobusca.png">
-	        	
-	        </div>
-	        <ion-list ng-show="busca.length >= 3">
+	      </div>
+	        <ion-list ng-show="busca.length >= 3 && !erroBusca">
 	        	<ion-item ng-repeat="livro in livros | filter: busca" href="#/livroInfo/{{livro.id}}" >
 	        		<div class="color-text">
 		        		<p style="white-space: normal;"><strong>{{livro.nome_livro}}</strong></p>
 		        		<p>{{livro.autor}}</p>
 		        		<i class="mdi mdi-information" id="iconPesquisa"></i>
 
-		        		<p>N. de chamada: {{livro.codigo}} ({{livro.local}})</p>		  
+		        		<p>N. de chamada: {{livro.codigo}} ({{livro.local}})</p>
 		        		<p>Tipo de obra: {{livro.obra}}</p>
-		        	</div>	
+		        	</div>
 	        	</ion-item>
 	        </ion-list>
-	        <div ng-show="livros.length == 0 && busca.length >= 3" class="empty-screen">
+	        <div ng-show="livros.length == 0 && busca.length >= 3 || busca != undefined && erroBusca" class="empty-screen">
 	        	<img src="img/pesquisarerro.png">
 	        </div>
 		</ion-content>

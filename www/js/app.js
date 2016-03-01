@@ -3,7 +3,6 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-//console.log('teste;')
 angular.module('codex', ['ionic', 'ngStorage', 'ngCordova', 'jett.ionic.filter.bar'])
 
 .run(function($ionicPlatform, $state, $ionicPopup, $ionicHistory, $ionicSideMenuDelegate, $cordovaStatusbar) {
@@ -21,18 +20,17 @@ angular.module('codex', ['ionic', 'ngStorage', 'ngCordova', 'jett.ionic.filter.b
       cordova.plugins.Keyboard.disableScroll(true);
     }
     if(window.StatusBar) {
+
       if(ionic.Platform.isAndroid()){
         window.StatusBar.overlaysWebView(false);
         window.StatusBar.backgroundColorByHexString("#003C66");
       }
       else{
-        StatusBar.styleDefault();  
+        StatusBar.styleDefault();
       }
-      
     }
   });
-  $ionicPlatform.registerBackButtonAction ( function (){
-    //alert('you sure you want to exit?');
+  $ionicPlatform.registerBackButtonAction ( function () {
     if($state.current.name == 'app.home')
     {
       $ionicPopup.confirm({
@@ -44,24 +42,21 @@ angular.module('codex', ['ionic', 'ngStorage', 'ngCordova', 'jett.ionic.filter.b
       .then(function (res){
         if (res)
         {
-          //alert('true');
           navigator.app.exitApp();
         }
       })
     }
-	else if($state.current.name == 'app.Bibliotecas' || $state.current.name == 'app.codificacao' || $state.current.name == 'app.livrosAlugados' || $state.current.name == 'app.busca')
-	{
-		$state.go('app.home');
-	}
+  	else if($state.current.name == 'app.Bibliotecas' || $state.current.name == 'app.codificacao' || $state.current.name == 'app.livrosAlugados' || $state.current.name == 'app.busca')
+  	{
+  		$state.go('app.home');
+  	}
     else
     {
-      //alert($ionicHistory.currentStateName());
-      //$state.go('app.home');
-	  $ionicHistory.goBack();
+	     $ionicHistory.goBack();
     }
   },100);
-  
-  if($state.current.name == 'app.addLivro')
+
+  if($state.current.name == 'app.addLivrosAlugados')
   {
     $ionicSideMenuDelegate.canDragContent(false);
   }
@@ -119,14 +114,16 @@ angular.module('codex', ['ionic', 'ngStorage', 'ngCordova', 'jett.ionic.filter.b
     }
   })
 
-  .state('app.addLivrosAlugados', {
+  .state('addLivrosAlugados', {
     url: '/addLivrosAlugados',
-    views: {
-      'menuContent': {
-        templateUrl: 'view/addLivrosAlugados.html',
-        controller: 'livrosAlugadosCtrl'
-      }
-    }
+    templateUrl: 'view/addLivrosAlugados.html',
+    controller: 'livrosAlugadosCtrl'
+    // views: {
+    //   'menuContent': {
+    //     templateUrl: 'view/addLivrosAlugados.html',
+    //     controller: 'livrosAlugadosCtrl'
+    //   }
+    // }
   })
 
   .state('app.codificacao', {
@@ -156,7 +153,7 @@ angular.module('codex', ['ionic', 'ngStorage', 'ngCordova', 'jett.ionic.filter.b
       }
     }
   })
-  
+
   .state('app.Biblioteca_GPS', {
     url: '/Biblioteca_GPS',
     views: {
