@@ -50,8 +50,19 @@
 	<script src="js/controllers/biblio.js"></script>
 
 	<script src="js/controllers/biblio_exibi.js"></script>
-    <script src="js/controllers/sobreCtrl.js"></script>
-	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBbICpn4-CSejddQcTBtguUm4WppLecQBc&amp;libraries=places"></script>
+    	<script src="js/controllers/sobreCtrl.js"></script>
+	<script >
+	var Bool_Incluir_Maps=1;
+	function Incluir_Maps(){
+		Bool_Incluir_Maps=0;
+		var script = document.createElement('script');
+		script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyBbICpn4-CSejddQcTBtguUm4WppLecQBc&amp&libraries=places";
+		document.body.appendChild(script);
+		setTimeout(initializeMap,1000);
+	}
+	
+	</script>
+	<!--script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBbICpn4-CSejddQcTBtguUm4WppLecQBc&amp;libraries=places"></script-->
 	<script src="js/controllers/GPS.js"></script>
   </head>
   <body>

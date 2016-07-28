@@ -1,7 +1,6 @@
 ﻿var markers=[];
 var openedInfo;
 var map;
-var directionsService = new google.maps.DirectionsService();
 var id = 3;	
 
 function closeMarkers(){
@@ -50,7 +49,17 @@ function createMarker(i,latlng,nome,descr){
 	
 }
 
-function initializeMap() {	
+function initializeMap() {
+	var directionsService = new google.maps.DirectionsService();	
+	var input = document.getElementById('route_from');
+	var options = {
+	  componentRestrictions: {city: 'Fortaleza'}
+	};
+	var autocomplete = new google.maps.places.Autocomplete(input);
+	autocomplete.addListener('place_changed', function(){
+		/*alert(place.address_components[0].long_name);*/
+		TracaRota();
+	});
 	for (var i = 0; i < Bibliotecas.length; i++){
 		createMarker(i,new google.maps.LatLng(Bibliotecas[i].lat, Bibliotecas[i].lng),Bibliotecas[i].nome,Bibliotecas[i].nome);
 	}
@@ -158,18 +167,13 @@ angular.module('codex')
 			ErrorConecNet();
 			$ionicHistory.goBack();
 		}else{*/
-			initializeMap();
+			if(Bool_Incluir_Maps)
+				Incluir_Maps();
+			else 
+				initializeMap();
 		//}
 	});
 	
-	var input = document.getElementById('route_from');
-	var options = {
-	  componentRestrictions: {city: 'Fortaleza'}
-	};
-	var autocomplete = new google.maps.places.Autocomplete(input);
-	autocomplete.addListener('place_changed', function(){
-		/*alert(place.address_components[0].long_name);*/
-		TracaRota();
-	});
+
 	
 }]);
